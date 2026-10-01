@@ -1,0 +1,8 @@
+title = "SecretSense development checks"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated Python caches can contain runtime synthetic test values"
+paths = ['''(^|/)(?:__pycache__|\.pytest_cache)/''']
