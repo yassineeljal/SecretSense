@@ -1,0 +1,174 @@
+{
+  "artifact_sha256": "45b4c1acdcb9e77bee8f6191b8926f7573f40e30c2234f050ae4c40bcfa91084",
+  "baseline_report_sha256": "85d779894b608be597ad80f8520411d460ee1b01250f5715c80215f18e298bab",
+  "candidates": {
+    "above_threshold": 390,
+    "below_threshold": 507,
+    "retained": 897
+  },
+  "dataset_sha256": "d30ffc5475edbfd9e410613e3ed66c0711c5cf44d7ed102585dae642d5a44c10",
+  "environment": {
+    "machine": "arm64",
+    "python": "3.12.13",
+    "scikit-learn": "1.9.1",
+    "system": "Darwin"
+  },
+  "evaluated_at_utc": "2026-10-01T02:21:44.678764+00:00",
+  "frozen_baseline_agreement": true,
+  "limitations": [
+    "Reproduction on the already observed synthetic test split, not a new evaluation.",
+    "Above-threshold-only metrics describe hypothetical filtering; CLI retains all findings.",
+    "Scores are uncalibrated and do not establish credential validity.",
+    "Single-run timing includes both scored and rules scans; not a latency benchmark."
+  ],
+  "metrics": {
+    "above_threshold_only": {
+      "confusion_matrix": [
+        [
+          600,
+          0
+        ],
+        [
+          210,
+          390
+        ]
+      ],
+      "f1": 0.7878787878787878,
+      "f2": 0.6989247311827957,
+      "precision": 1.0,
+      "recall": 0.65,
+      "rows": 1200
+    },
+    "retained_candidates": {
+      "confusion_matrix": [
+        [
+          300,
+          300
+        ],
+        [
+          3,
+          597
+        ]
+      ],
+      "f1": 0.7975951903807615,
+      "f2": 0.905368516833485,
+      "precision": 0.6655518394648829,
+      "recall": 0.995,
+      "rows": 1200
+    }
+  },
+  "policy": "annotate-all-candidates",
+  "scan_comparison_seconds": 1.536696417024359,
+  "schema_version": 1,
+  "source_state": {
+    "git_head": "75d1079aa4e5413438b870a504e137cc7fcbc3ed",
+    "sources": [
+      {
+        "path": "core/secretsense/__init__.py",
+        "sha256": "8985267eb0fef61d8fc21a74d2a77f0984f0c992af06dcbdaa57827f84e02630"
+      },
+      {
+        "path": "core/secretsense/__main__.py",
+        "sha256": "bf6c1acd4deaa9f6373402ca204778f1f2e952fa693b2c785739ac89c7735165"
+      },
+      {
+        "path": "core/secretsense/cli.py",
+        "sha256": "27474cbb3e57535b5a8c5b5b0983586532b5b694db586f1fa184090f6cee61f9"
+      },
+      {
+        "path": "core/secretsense/features/__init__.py",
+        "sha256": "2c65edd8b873c90b0cadf5ec5f96ebc7fda6586621e5163c5f180943a613cc30"
+      },
+      {
+        "path": "core/secretsense/model/__init__.py",
+        "sha256": "dd7da68f4c0060c34f72431c1784aa7066cc38c360454c794f1c651d812a207b"
+      },
+      {
+        "path": "core/secretsense/model/artifact.py",
+        "sha256": "985fb1927f35a07d84021b37b57e8321dff42f4fd96dc63263af2996df7e2d6d"
+      },
+      {
+        "path": "core/secretsense/model/predict.py",
+        "sha256": "6bbcf6ba2d9ff00e89eee654a88fb6460e7638e9ec26342ccd0de1f50b711b9f"
+      },
+      {
+        "path": "core/secretsense/model/train.py",
+        "sha256": "77c806ed5d0dc9175c792eb69d462494bbd2313cfeb730ea378c200f7a8a9661"
+      },
+      {
+        "path": "core/secretsense/report/__init__.py",
+        "sha256": "6d0983c46663ef934e9fe128dcd12415092791656a7716656fcb66a9d239fb77"
+      },
+      {
+        "path": "core/secretsense/report/console.py",
+        "sha256": "61bb89df24717ccfb0373e433ecb53b36152ddcab4dbc4d25768b73be12d8ea3"
+      },
+      {
+        "path": "core/secretsense/report/html_report.py",
+        "sha256": "01fdbc00d7d26356f3103e0558305dec5d9465deb3babe3317bb9b882fd25dad"
+      },
+      {
+        "path": "core/secretsense/report/json_report.py",
+        "sha256": "7cc0fb2512e829d3dae710f414f9dd7f5d1bc563095842e3737644bd2eba3886"
+      },
+      {
+        "path": "core/secretsense/scanner/__init__.py",
+        "sha256": "94eff032e9c4ddfd1b766475bf8de508c0c642ad084e6b41f58cda108d596d89"
+      },
+      {
+        "path": "core/secretsense/scanner/candidates.py",
+        "sha256": "1bc424839fdd3688386c5f28758facd61772df31a3aa994b6fe97087ba8922bd"
+      },
+      {
+        "path": "core/secretsense/scanner/engine.py",
+        "sha256": "08677b4f6b6195434b04d8a7dfaefc677428a870ce5555b3c1dbae33d7772b42"
+      },
+      {
+        "path": "core/secretsense/scanner/entropy.py",
+        "sha256": "2c81df6f19ce39852bc85a5ecae7b8768b7b8ecc91b8b07e957ff72d0842f899"
+      },
+      {
+        "path": "core/secretsense/scanner/patterns.py",
+        "sha256": "df313dc6c7d0e8afd6fbfa3c503d0eb1f786f49534be28f4d36ee483c64b8ee3"
+      },
+      {
+        "path": "core/secretsense/scanner/walker.py",
+        "sha256": "e16b229a52997747408c1545efe8ff239686cea70f3d0d0a033ef9f1425c6e31"
+      },
+      {
+        "path": "ml/scripts/__init__.py",
+        "sha256": "84d671b03ce275309e732a3d1dc69190826bc691a8ff599c8b6a8e63433aa111"
+      },
+      {
+        "path": "ml/scripts/benchmark_pipeline.py",
+        "sha256": "a52091ca1474cbbb30b6ae4bf8360ee54d7d11defe2fe845c78f741750564a8d"
+      },
+      {
+        "path": "ml/scripts/build_dataset.py",
+        "sha256": "92dd86b5cab68ce790f5b0bb777f68ea3cf2b98b131e0c8f0857c7512c3fdf2e"
+      },
+      {
+        "path": "ml/scripts/collect_false_positives.py",
+        "sha256": "44a8e8f9de5f878c8e0350076409dceeee887984e6f5a9f2fc69f2fb6fbc9e53"
+      },
+      {
+        "path": "ml/scripts/common.py",
+        "sha256": "27a582ebd219c27b246f34d9f2b9952736f3fc721342f6929162265a87393942"
+      },
+      {
+        "path": "ml/scripts/generate_fake_secrets.py",
+        "sha256": "1bac84a4e434bd7da2d10ae2056092c1821b51ef939c4d230c4e909e00a977a6"
+      },
+      {
+        "path": "ml/scripts/plot_benchmarks.py",
+        "sha256": "f7de906591ac00016563988b5f65b4968497529e56bb31088ae49d7b6fab62c2"
+      },
+      {
+        "path": "ml/scripts/train_baseline.py",
+        "sha256": "8be33d1616ea2257054b41cd698b745b188b65827bb5e5f259533e64e592e0ca"
+      }
+    ],
+    "working_tree_dirty": true
+  },
+  "threshold": 0.6
+}

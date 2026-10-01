@@ -1,0 +1,64 @@
+name: SecretSense local scan
+description: Scan a checkout locally and produce redacted SARIF without uploading source.
+inputs:
+  path:
+    description: File or directory relative to the repository workspace.
+    default: '.'
+  history:
+    description: Scan local Git history instead of the working tree (true or false).
+    default: 'false'
+  ref:
+    description: Local Git revision to scan when history is true.
+    default: HEAD
+  max-commits:
+    description: Maximum history commits (truncation is incomplete).
+    default: '100'
+  max-files:
+    description: Maximum visited entries.
+    default: '10000'
+  max-bytes:
+    description: Maximum bytes per file or blob.
+    default: '1048576'
+  max-total-bytes:
+    description: Maximum total history blob bytes.
+    default: '52428800'
+  timeout:
+    description: History deadline in seconds.
+    default: '30'
+  fail-on-findings:
+    description: Fail for candidates (true or false). Incomplete scans always fail.
+    default: 'true'
+outputs:
+  sarif:
+    description: Absolute path to the redacted SARIF report in runner temporary storage.
+    value: ${{ steps.scan.outputs.sarif }}
+  exit-code:
+    description: Scanner status (0 clean, 1 candidates, 2 incomplete or invalid).
+    value: ${{ steps.scan.outputs.exit-code }}
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      with:
+        python-version: '3.12'
+    - name: Install scanner in an isolated environment
+      shell: bash
+      run: |
+        scanner_env="$(mktemp -d "$RUNNER_TEMP/secretsense-env.XXXXXX")"
+        python -m venv "$scanner_env"
+        "$scanner_env/bin/python" -m pip install "$GITHUB_ACTION_PATH/core"
+        echo "SECRETSENSE_PYTHON=$scanner_env/bin/python" >> "$GITHUB_ENV"
+    - name: Scan locally
+      id: scan
+      shell: bash
+      env:
+        INPUT_SCAN_PATH: ${{ inputs.path }}
+        INPUT_HISTORY: ${{ inputs.history }}
+        INPUT_REF: ${{ inputs.ref }}
+        INPUT_MAX_COMMITS: ${{ inputs.max-commits }}
+        INPUT_MAX_FILES: ${{ inputs.max-files }}
+        INPUT_MAX_BYTES: ${{ inputs.max-bytes }}
+        INPUT_MAX_TOTAL_BYTES: ${{ inputs.max-total-bytes }}
+        INPUT_TIMEOUT: ${{ inputs.timeout }}
+        INPUT_FAIL_ON_FINDINGS: ${{ inputs.fail-on-findings }}
+      run: '"$SECRETSENSE_PYTHON" "$GITHUB_ACTION_PATH/.github/actions-runner/scan.py"'

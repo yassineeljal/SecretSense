@@ -142,6 +142,23 @@ Use four notebooks for exploration, feature work, model comparison, and errors.
 ## Delivery sprints
 
 A sprint is a suggested week of work, not an automatic commitment to elapsed time.
+Sprints 0–6 are implemented locally; sprint 7 is next. Sprint 2's reproducible
+CSV is generated locally and Git-ignored; its generators, negative review catalog,
+manifest, and exploration notebook are maintained in `ml/`. Review here means
+local template inspection, not independent human adjudication. See the
+[dataset guide](../ml/README.md) and [validation log](progress.md). Sprint 3 adds
+an offline forest, trusted artifact checksum, feature/comparison notebooks, and
+measured synthetic results. Its recall regression rules out default filtering;
+sprint 4 therefore implements opt-in annotations that retain every finding.
+Trusted artifact checks, JSON score semantics, HTML reports, frozen-model scanner
+reproduction, and PNG/SVG comparison figures are delivered. The proposed 0.4/0.8
+bands remain planned pending calibration; the artifact threshold (0.6 for this
+baseline) controls annotations only. Sprint 5 delivers service playbooks, bounded local Git-history scans, SARIF 2.1.0,
+a reusable Action, an error-analysis notebook, and a separate XGBoost experiment
+with new candidate negatives and fresh grouped holdout evaluation. XGBoost offers
+no advantage over the retrained forest on that synthetic holdout. Both holdouts
+are now observed; future tuning needs another reserved set. Remote Action execution,
+independent human adjudication, and unseen-repository evaluation remain unverified.
 
 | Sprint | Work | Deliverable |
 | --- | --- | --- |
@@ -158,6 +175,11 @@ A sprint is a suggested week of work, not an automatic commitment to elapsed tim
 Console and JSON reporting were brought forward to sprint 1 so the first scanner
 is usable and its masking contract can be tested. Early security, contribution,
 model-card, and benchmark documents establish limits before those features ship.
+
+Sprint 6 delivers bounded in-memory text scanning, health/engine information,
+fully redacted API reports, and local home/scan/results pages with API and browser
+tests. Repository URLs, archives, hosted access, API model loading, and the wider
+informational site pages remain planned. See [the API/site guide](api-and-web.md).
 
 ## Definition of done
 

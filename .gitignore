@@ -14,7 +14,15 @@ dist/
 !.env.example
 node_modules/
 .next/
+.ipynb_checkpoints/
 ml/data/raw/*
 ml/data/generated/*
 ml/data/dataset.csv
 core/secretsense/model/artifacts/*
+ml/results/*.pkl
+ml/results/*.ubj
+
+# Local web build and browser test artifacts
+*.tsbuildinfo
+web/test-results/
+web/playwright-report/

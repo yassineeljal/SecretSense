@@ -1,7 +1,9 @@
 # Detection rules
 
-The initial engine uses format matching plus Shannon entropy. It never connects
-to providers, decodes a credential for validation, or assigns an ML probability.
+The default engine uses format matching plus Shannon entropy. It never connects
+to providers or decodes a credential for validation. Optional local ML annotates
+these same candidates with uncalibrated scores; it never removes findings or
+changes severity. See [score semantics](cli.md#optional-local-model-annotations).
 
 | Service | Rule ID | Covered shape |
 | --- | --- | --- |
@@ -44,3 +46,13 @@ not verified impact or confidence scores. Test-mode keys are deliberately flagge
 Pattern design was cross-checked against the public
 [Gitleaks rule catalog](https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml).
 This is an independent, deliberately smaller implementation, not equivalent coverage.
+
+
+## History and response guidance
+
+Sprint 5 can scan tracked Git snapshots locally, including deleted files and files
+hidden by current ignore rules. The same patterns and entropy thresholds apply;
+see [history scope and bounds](cli.md#git-history-remediation-and-sarif-sprint-5).
+Commit/blob provenance identifies an observed snapshot, not proven introduction.
+Every finding includes static [service remediation](remediation.md). SARIF output
+contains locations and guidance without source snippets or detected values.

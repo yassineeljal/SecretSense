@@ -1,0 +1,129 @@
+{
+  "dataset_sha256": "d30ffc5475edbfd9e410613e3ed66c0711c5cf44d7ed102585dae642d5a44c10",
+  "duplicates_removed": 0,
+  "examples_per_family": 300,
+  "generator_version": "1",
+  "label_counts": {
+    "0": 3000,
+    "1": 3000
+  },
+  "label_policy": "1 = invented credential shape; 0 = benign template in its authored context.",
+  "license": "MIT",
+  "limitations": [
+    "Labels do not assert credential validity; no remote checks performed.",
+    "Template review is local inspection, not independent human adjudication.",
+    "Entire credential/negative families are held out; coverage differs by split.",
+    "Synthetic balanced data does not estimate real-world precision or prevalence.",
+    "Metadata must not be used as model features; no model is trained in sprint 2."
+  ],
+  "provenance": "Locally authored synthetic examples only; no external repositories or credentials.",
+  "rows": 6000,
+  "schema_version": 1,
+  "seed": 20260930,
+  "sources": [
+    {
+      "path": "scripts/__init__.py",
+      "sha256": "84d671b03ce275309e732a3d1dc69190826bc691a8ff599c8b6a8e63433aa111"
+    },
+    {
+      "path": "scripts/build_dataset.py",
+      "sha256": "92dd86b5cab68ce790f5b0bb777f68ea3cf2b98b131e0c8f0857c7512c3fdf2e"
+    },
+    {
+      "path": "scripts/collect_false_positives.py",
+      "sha256": "44a8e8f9de5f878c8e0350076409dceeee887984e6f5a9f2fc69f2fb6fbc9e53"
+    },
+    {
+      "path": "scripts/common.py",
+      "sha256": "27a582ebd219c27b246f34d9f2b9952736f3fc721342f6929162265a87393942"
+    },
+    {
+      "path": "scripts/generate_fake_secrets.py",
+      "sha256": "1bac84a4e434bd7da2d10ae2056092c1821b51ef939c4d230c4e909e00a977a6"
+    },
+    {
+      "path": "scripts/train_baseline.py",
+      "sha256": "c2c9a41ad8bc33a620df069c48af5485804d7704fa8930154f2259df53cb95cb"
+    },
+    {
+      "path": "data/negative_templates.json",
+      "sha256": "6a1307ddafddfcd7f5d4a93607838696efe0fe661eae11b5f56755a4e0f4749b"
+    }
+  ],
+  "split_policy": "Connected source/template groups; seeded ordering; 60/20/20 targets.",
+  "splits": {
+    "test": {
+      "label_counts": {
+        "0": 600,
+        "1": 600
+      },
+      "rows": 1200,
+      "source_groups": [
+        "synthetic:database-password",
+        "synthetic:documentation-url",
+        "synthetic:stripe-key",
+        "synthetic:test-dummy"
+      ],
+      "template_families": [
+        "database-password",
+        "documentation-url",
+        "stripe-key",
+        "test-dummy"
+      ]
+    },
+    "train": {
+      "label_counts": {
+        "0": 1800,
+        "1": 1800
+      },
+      "rows": 3600,
+      "source_groups": [
+        "synthetic:aws-access-key",
+        "synthetic:content-hash",
+        "synthetic:css-color",
+        "synthetic:documentation-placeholder",
+        "synthetic:github-token",
+        "synthetic:jwt",
+        "synthetic:numeric-id",
+        "synthetic:private-key-shape",
+        "synthetic:sendgrid-key",
+        "synthetic:slack-token",
+        "synthetic:uuid",
+        "synthetic:version"
+      ],
+      "template_families": [
+        "aws-access-key",
+        "content-hash",
+        "css-color",
+        "documentation-placeholder",
+        "github-token",
+        "jwt",
+        "numeric-id",
+        "private-key-shape",
+        "sendgrid-key",
+        "slack-token",
+        "uuid",
+        "version"
+      ]
+    },
+    "validation": {
+      "label_counts": {
+        "0": 600,
+        "1": 600
+      },
+      "rows": 1200,
+      "source_groups": [
+        "synthetic:build-id",
+        "synthetic:environment-reference",
+        "synthetic:gitlab-token",
+        "synthetic:google-api-key"
+      ],
+      "template_families": [
+        "build-id",
+        "environment-reference",
+        "gitlab-token",
+        "google-api-key"
+      ]
+    }
+  }
+}

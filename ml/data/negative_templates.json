@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "provenance": "Original templates authored in this repository; no external data collected.",
+  "license": "MIT",
+  "review_method": "Local code and template inspection during sprint 2; not independent human adjudication of every generated row.",
+  "families": {
+    "documentation-placeholder": {
+      "label": 0,
+      "rationale": "Explicit your_key_here markers represent instructions to supply a value.",
+      "limitations": "A placeholder-looking literal can still be deployed as a password."
+    },
+    "environment-reference": {
+      "label": 0,
+      "rationale": "Environment expressions name variables and contain no resolved secret value.",
+      "limitations": "Environment values are unknown; this label applies only to the expression."
+    },
+    "uuid": {
+      "label": 0,
+      "rationale": "Invented UUIDs are assigned to request identifiers.",
+      "limitations": "UUIDs used as bearer credentials would require a different label."
+    },
+    "content-hash": {
+      "label": 0,
+      "rationale": "SHA-256 digests are computed from invented content and labeled as content hashes.",
+      "limitations": "Hexadecimal shape alone cannot distinguish a hash from a secret."
+    },
+    "build-id": {
+      "label": 0,
+      "rationale": "Invented build identifiers describe build metadata.",
+      "limitations": "Real build metadata may contain accidentally embedded secrets."
+    },
+    "documentation-url": {
+      "label": 0,
+      "rationale": "Invented documentation URLs use .invalid and contain no authentication material.",
+      "limitations": "Real URLs can carry credentials in user information, paths, or queries."
+    },
+    "test-dummy": {
+      "label": 0,
+      "rationale": "Explicit dummy_for_test markers are invented locally and assigned only in synthetic examples.",
+      "limitations": "The presence of test or dummy is insufficient evidence for real repository values."
+    },
+    "version": {
+      "label": 0,
+      "rationale": "Three numeric components describe an invented package version.",
+      "limitations": "Unusual version metadata may require contextual review."
+    },
+    "css-color": {
+      "label": 0,
+      "rationale": "Three six-digit hexadecimal colors form an invented theme palette.",
+      "limitations": "This is an easy negative and does not represent credential-shaped hard negatives."
+    },
+    "numeric-id": {
+      "label": 0,
+      "rationale": "Invented numeric issue identifiers are non-authenticating metadata.",
+      "limitations": "Numeric PINs or access codes in other contexts can be secrets."
+    }
+  }
+}

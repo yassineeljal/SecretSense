@@ -1,0 +1,2206 @@
+{
+  "artifact": {
+    "filename": "baseline.pkl",
+    "format": "trusted-local-pickle-protocol-5",
+    "sha256": "45b4c1acdcb9e77bee8f6191b8926f7573f40e30c2234f050ae4c40bcfa91084"
+  },
+  "dataset_manifest_sha256": "c3c61d3512a00b4ff49d62d9c8bd3696da3e36ade809dd070bc9f5f938fed0ff",
+  "dataset_sha256": "d30ffc5475edbfd9e410613e3ed66c0711c5cf44d7ed102585dae642d5a44c10",
+  "environment": {
+    "dependencies": {
+      "joblib": "1.6.0",
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "machine": "arm64",
+    "processor": "arm",
+    "python": "3.12.13",
+    "system": "Darwin"
+  },
+  "evaluation": {
+    "test": {
+      "by_family": {
+        "database-password": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                210,
+                90
+              ]
+            ],
+            "f1": 0.46153846153846156,
+            "f2": 0.3488372093023256,
+            "precision": 1.0,
+            "recall": 0.3,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                210,
+                90
+              ]
+            ],
+            "f1": 0.46153846153846156,
+            "f2": 0.3488372093023256,
+            "precision": 1.0,
+            "recall": 0.3,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                300,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                3,
+                297
+              ]
+            ],
+            "f1": 0.9949748743718593,
+            "f2": 0.9919839679358717,
+            "precision": 1.0,
+            "recall": 0.99,
+            "rows": 300
+          }
+        },
+        "documentation-url": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "stripe-key": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "test-dummy": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                300
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        }
+      },
+      "candidate_coverage": {
+        "0": {
+          "rows": 600,
+          "rows_with_candidates": 300
+        },
+        "1": {
+          "rows": 600,
+          "rows_with_candidates": 597
+        }
+      },
+      "metrics": {
+        "annotated_value_model": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              210,
+              390
+            ]
+          ],
+          "f1": 0.7878787878787878,
+          "f2": 0.6989247311827957,
+          "precision": 1.0,
+          "recall": 0.65,
+          "rows": 1200
+        },
+        "candidate_pipeline_model": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              210,
+              390
+            ]
+          ],
+          "f1": 0.7878787878787878,
+          "f2": 0.6989247311827957,
+          "precision": 1.0,
+          "recall": 0.65,
+          "rows": 1200
+        },
+        "regex_only": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              300,
+              300
+            ]
+          ],
+          "f1": 0.6666666666666666,
+          "f2": 0.5555555555555556,
+          "precision": 1.0,
+          "recall": 0.5,
+          "rows": 1200
+        },
+        "rules_and_entropy": {
+          "confusion_matrix": [
+            [
+              300,
+              300
+            ],
+            [
+              3,
+              597
+            ]
+          ],
+          "f1": 0.7975951903807615,
+          "f2": 0.905368516833485,
+          "precision": 0.6655518394648829,
+          "recall": 0.995,
+          "rows": 1200
+        }
+      }
+    },
+    "train": {
+      "by_family": {
+        "aws-access-key": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "content-hash": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "css-color": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "documentation-placeholder": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "github-token": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "jwt": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "numeric-id": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "private-key-shape": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "sendgrid-key": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "slack-token": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "uuid": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "version": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        }
+      },
+      "candidate_coverage": {
+        "0": {
+          "rows": 1800,
+          "rows_with_candidates": 0
+        },
+        "1": {
+          "rows": 1800,
+          "rows_with_candidates": 1800
+        }
+      },
+      "metrics": {
+        "annotated_value_model": {
+          "confusion_matrix": [
+            [
+              1800,
+              0
+            ],
+            [
+              0,
+              1800
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 3600
+        },
+        "candidate_pipeline_model": {
+          "confusion_matrix": [
+            [
+              1800,
+              0
+            ],
+            [
+              0,
+              1800
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 3600
+        },
+        "regex_only": {
+          "confusion_matrix": [
+            [
+              1800,
+              0
+            ],
+            [
+              0,
+              1800
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 3600
+        },
+        "rules_and_entropy": {
+          "confusion_matrix": [
+            [
+              1800,
+              0
+            ],
+            [
+              0,
+              1800
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 3600
+        }
+      }
+    },
+    "validation": {
+      "by_family": {
+        "build-id": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "environment-reference": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                278,
+                22
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                300,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "f1": 0.0,
+            "f2": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "rows": 300
+          }
+        },
+        "gitlab-token": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        },
+        "google-api-key": {
+          "annotated_value_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "candidate_pipeline_model": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "regex_only": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          },
+          "rules_and_entropy": {
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                300
+              ]
+            ],
+            "f1": 1.0,
+            "f2": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 300
+          }
+        }
+      },
+      "candidate_coverage": {
+        "0": {
+          "rows": 600,
+          "rows_with_candidates": 0
+        },
+        "1": {
+          "rows": 600,
+          "rows_with_candidates": 600
+        }
+      },
+      "metrics": {
+        "annotated_value_model": {
+          "confusion_matrix": [
+            [
+              578,
+              22
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.9819967266775778,
+          "f2": 0.9927200529450695,
+          "precision": 0.9646302250803859,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "candidate_pipeline_model": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "regex_only": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "rules_and_entropy": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 1.0,
+          "f2": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 1200
+        }
+      }
+    }
+  },
+  "feature_importances": {
+    "digit_ratio": 0.04529690381136399,
+    "entropy": 0.1634906075881233,
+    "environment_reference": 0.0,
+    "format_match": 0.27627016180720954,
+    "has_newline": 0.003749190098543709,
+    "hex_only": 0.01759531926498806,
+    "length": 0.1302184864447247,
+    "lower_ratio": 0.007620275972846037,
+    "placeholder_marker": 0.01850314651168759,
+    "secret_name": 0.03140413579159319,
+    "symbol_ratio": 0.049332070069313214,
+    "unique_ratio": 0.016816945158400574,
+    "upper_ratio": 0.23970275748120623
+  },
+  "feature_names": [
+    "length",
+    "entropy",
+    "unique_ratio",
+    "lower_ratio",
+    "upper_ratio",
+    "digit_ratio",
+    "symbol_ratio",
+    "hex_only",
+    "has_newline",
+    "format_match",
+    "secret_name",
+    "placeholder_marker",
+    "environment_reference"
+  ],
+  "feature_version": 1,
+  "limitations": [
+    "Synthetic grouped holdout only; no real-world accuracy or credential validity claim.",
+    "Training/validation candidate negatives are absent for the default corpus.",
+    "Annotated-value evaluation assumes supplied boundaries; pipeline evaluation uses actual scanner spans.",
+    "Scores are uncalibrated; the threshold is experimental and not used by the CLI.",
+    "Only twenty families; validation cannot measure candidate false-positive suppression.",
+    "Test results must not be used to retune this baseline; new experiments need a fresh holdout."
+  ],
+  "schema_version": 1,
+  "selection": {
+    "seed": 20260930,
+    "selected": {
+      "metrics": {
+        "confusion_matrix": [
+          [
+            578,
+            22
+          ],
+          [
+            0,
+            600
+          ]
+        ],
+        "f1": 0.9819967266775778,
+        "f2": 0.9927200529450695,
+        "precision": 0.9646302250803859,
+        "recall": 1.0,
+        "rows": 1200
+      },
+      "parameters": {
+        "max_depth": 6,
+        "min_samples_leaf": 2
+      },
+      "threshold": 0.6
+    },
+    "trials": [
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              289,
+              311
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.7941760423560555,
+          "f2": 0.906070673512534,
+          "precision": 0.6586169045005489,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 6,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.25
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              358,
+              242
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8321775312066574,
+          "f2": 0.9253547193090684,
+          "precision": 0.7125890736342043,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 6,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.4
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              414,
+              186
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8658008658008658,
+          "f2": 0.9416195856873822,
+          "precision": 0.7633587786259542,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 6,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.5
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              578,
+              22
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.9819967266775778,
+          "f2": 0.9927200529450695,
+          "precision": 0.9646302250803859,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 6,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.6
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              8,
+              592
+            ]
+          ],
+          "f1": 0.9932885906040269,
+          "f2": 0.9893048128342246,
+          "precision": 1.0,
+          "recall": 0.9866666666666667,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 6,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.75
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              289,
+              311
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.7941760423560555,
+          "f2": 0.906070673512534,
+          "precision": 0.6586169045005489,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 12,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.25
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              358,
+              242
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8321775312066574,
+          "f2": 0.9253547193090684,
+          "precision": 0.7125890736342043,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 12,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.4
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              414,
+              186
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8658008658008658,
+          "f2": 0.9416195856873822,
+          "precision": 0.7633587786259542,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 12,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.5
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              578,
+              22
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.9819967266775778,
+          "f2": 0.9927200529450695,
+          "precision": 0.9646302250803859,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 12,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.6
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              8,
+              592
+            ]
+          ],
+          "f1": 0.9932885906040269,
+          "f2": 0.9893048128342246,
+          "precision": 1.0,
+          "recall": 0.9866666666666667,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": 12,
+          "min_samples_leaf": 2
+        },
+        "threshold": 0.75
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              289,
+              311
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.7941760423560555,
+          "f2": 0.906070673512534,
+          "precision": 0.6586169045005489,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": null,
+          "min_samples_leaf": 1
+        },
+        "threshold": 0.25
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              358,
+              242
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8321775312066574,
+          "f2": 0.9253547193090684,
+          "precision": 0.7125890736342043,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": null,
+          "min_samples_leaf": 1
+        },
+        "threshold": 0.4
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              414,
+              186
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.8658008658008658,
+          "f2": 0.9416195856873822,
+          "precision": 0.7633587786259542,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": null,
+          "min_samples_leaf": 1
+        },
+        "threshold": 0.5
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              578,
+              22
+            ],
+            [
+              0,
+              600
+            ]
+          ],
+          "f1": 0.9819967266775778,
+          "f2": 0.9927200529450695,
+          "precision": 0.9646302250803859,
+          "recall": 1.0,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": null,
+          "min_samples_leaf": 1
+        },
+        "threshold": 0.6
+      },
+      {
+        "metrics": {
+          "confusion_matrix": [
+            [
+              600,
+              0
+            ],
+            [
+              8,
+              592
+            ]
+          ],
+          "f1": 0.9932885906040269,
+          "f2": 0.9893048128342246,
+          "precision": 1.0,
+          "recall": 0.9866666666666667,
+          "rows": 1200
+        },
+        "parameters": {
+          "max_depth": null,
+          "min_samples_leaf": 1
+        },
+        "threshold": 0.75
+      }
+    ]
+  },
+  "selection_policy": "Validation F2, then recall, precision, threshold closest to 0.5; first configuration wins remaining ties. No train+validation refit.",
+  "source_state": {
+    "git_head": "75d1079aa4e5413438b870a504e137cc7fcbc3ed",
+    "sources": [
+      {
+        "path": "core/secretsense/__init__.py",
+        "sha256": "8985267eb0fef61d8fc21a74d2a77f0984f0c992af06dcbdaa57827f84e02630"
+      },
+      {
+        "path": "core/secretsense/__main__.py",
+        "sha256": "bf6c1acd4deaa9f6373402ca204778f1f2e952fa693b2c785739ac89c7735165"
+      },
+      {
+        "path": "core/secretsense/cli.py",
+        "sha256": "d7ae7789165cd9532a6a6d0b62455ef94c5fee34b9d461ce0f4ab850b966f879"
+      },
+      {
+        "path": "core/secretsense/features/__init__.py",
+        "sha256": "15ac725812a1590c656023de96fc052f2202ef1c478355b3fb054fd1ea2f6d49"
+      },
+      {
+        "path": "core/secretsense/model/__init__.py",
+        "sha256": "dd7da68f4c0060c34f72431c1784aa7066cc38c360454c794f1c651d812a207b"
+      },
+      {
+        "path": "core/secretsense/model/artifact.py",
+        "sha256": "a018d8d26a0b64e8eeac866baaafdd1c23d263da8c78679ebfbb4df03b015e7a"
+      },
+      {
+        "path": "core/secretsense/model/train.py",
+        "sha256": "77c806ed5d0dc9175c792eb69d462494bbd2313cfeb730ea378c200f7a8a9661"
+      },
+      {
+        "path": "core/secretsense/report/__init__.py",
+        "sha256": "6d0983c46663ef934e9fe128dcd12415092791656a7716656fcb66a9d239fb77"
+      },
+      {
+        "path": "core/secretsense/report/console.py",
+        "sha256": "8137c503e210affd5f3f16423fdbbd0be741c4e1c033a6a00bae0883056d839a"
+      },
+      {
+        "path": "core/secretsense/report/json_report.py",
+        "sha256": "7cc0fb2512e829d3dae710f414f9dd7f5d1bc563095842e3737644bd2eba3886"
+      },
+      {
+        "path": "core/secretsense/scanner/__init__.py",
+        "sha256": "94eff032e9c4ddfd1b766475bf8de508c0c642ad084e6b41f58cda108d596d89"
+      },
+      {
+        "path": "core/secretsense/scanner/candidates.py",
+        "sha256": "1bc424839fdd3688386c5f28758facd61772df31a3aa994b6fe97087ba8922bd"
+      },
+      {
+        "path": "core/secretsense/scanner/engine.py",
+        "sha256": "47e693fc10f7fe4518129064126b66b57f05bac9ab02a19d1bce7f86def10a6f"
+      },
+      {
+        "path": "core/secretsense/scanner/entropy.py",
+        "sha256": "2c81df6f19ce39852bc85a5ecae7b8768b7b8ecc91b8b07e957ff72d0842f899"
+      },
+      {
+        "path": "core/secretsense/scanner/patterns.py",
+        "sha256": "df313dc6c7d0e8afd6fbfa3c503d0eb1f786f49534be28f4d36ee483c64b8ee3"
+      },
+      {
+        "path": "core/secretsense/scanner/walker.py",
+        "sha256": "e16b229a52997747408c1545efe8ff239686cea70f3d0d0a033ef9f1425c6e31"
+      },
+      {
+        "path": "ml/scripts/__init__.py",
+        "sha256": "84d671b03ce275309e732a3d1dc69190826bc691a8ff599c8b6a8e63433aa111"
+      },
+      {
+        "path": "ml/scripts/build_dataset.py",
+        "sha256": "92dd86b5cab68ce790f5b0bb777f68ea3cf2b98b131e0c8f0857c7512c3fdf2e"
+      },
+      {
+        "path": "ml/scripts/collect_false_positives.py",
+        "sha256": "44a8e8f9de5f878c8e0350076409dceeee887984e6f5a9f2fc69f2fb6fbc9e53"
+      },
+      {
+        "path": "ml/scripts/common.py",
+        "sha256": "27a582ebd219c27b246f34d9f2b9952736f3fc721342f6929162265a87393942"
+      },
+      {
+        "path": "ml/scripts/generate_fake_secrets.py",
+        "sha256": "1bac84a4e434bd7da2d10ae2056092c1821b51ef939c4d230c4e909e00a977a6"
+      },
+      {
+        "path": "ml/scripts/train_baseline.py",
+        "sha256": "c2c9a41ad8bc33a620df069c48af5485804d7704fa8930154f2259df53cb95cb"
+      }
+    ],
+    "working_tree_dirty": true
+  },
+  "timing_seconds": {
+    "fit_and_selection": 0.37404962501022965,
+    "total": 0.8056811250280589
+  },
+  "trained_at_utc": "2026-10-01T02:06:08.983634+00:00",
+  "training_population": "All annotated values; candidate-only training lacks negative examples."
+}

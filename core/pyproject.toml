@@ -12,6 +12,10 @@ license = "MIT"
 dependencies = ["pathspec>=0.12.1,<2", "typer>=0.16,<1"]
 
 [project.optional-dependencies]
+api = ["fastapi>=0.142.2,<1", "uvicorn>=0.54,<1", "httpx>=0.28.1,<1"]
+ml = ["scikit-learn>=1.7,<2"]
+experiments = ["scikit-learn>=1.7,<2", "xgboost>=3,<4"]
+plots = ["matplotlib>=3.10,<4"]
 dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1", "build>=1.2,<2", "pip-audit>=2.9,<3", "pre-commit>=4,<5"]
 
 [project.scripts]

@@ -6,3 +6,11 @@ useDefault = true
 [[allowlists]]
 description = "Generated Python caches can contain runtime synthetic test values"
 paths = ['''(^|/)(?:__pycache__|\.pytest_cache)/''']
+
+[[allowlists]]
+description = "Reproducible synthetic dataset; generator source and review catalog remain scanned"
+paths = ['''(^|/)ml/data/dataset\.csv$''']
+
+[[allowlists]]
+description = "Git-ignored Next.js output contains generated framework signing/encryption keys; application source remains scanned"
+paths = ['''(^|/)web/\.next/''']
