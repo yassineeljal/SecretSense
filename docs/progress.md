@@ -1,7 +1,19 @@
 # Progress log
 
 Every functional change must update this log and the relevant usage or design
-documentation. Record actual validation separately from planned checks.
+documentation. Every meaningful change must also update the README session
+handoff. Record actual validation separately from planned checks.
+
+## 2026-09-30 — Persistent session handoff
+
+- Added the current milestone, verified checks, implementation commit, remaining
+  scope, and concrete sprint 2 starting point to the README.
+- Made README maintenance and reading repository context at session start explicit
+  in `AGENTS.md`, so future sessions can resume without conversation history.
+- The user authorized pushing the local scanner foundation and this documentation
+  update to `origin/main`. The initial delivery entry below records its state at
+  the time of implementation; consult Git and GitHub Actions for current remote state.
+- Documentation-only change; validate local links, Git whitespace, and commit hooks.
 
 ## 2026-09-30 — Foundations and first working scanner
 

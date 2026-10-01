@@ -10,6 +10,29 @@ learning, a FastAPI service, and a Next.js demonstration site are planned.
 is no trained model, hosted service, or PyPI release yet. The original project
 plan is preserved in English in [the roadmap](docs/roadmap.md).
 
+## Session handoff
+
+Keep this section current after every meaningful change so a new session can
+resume without access to previous conversations. Read this README, `AGENTS.md`,
+and [the progress log](docs/progress.md) before starting work.
+
+- **Current milestone:** sprints 0 and 1 are implemented: Python packaging, the
+  local scanner, CLI, redacted console/JSON reports, tests, and CI configuration.
+- **Latest implementation:** commit `2da5536` adds the scanner foundation.
+- **Verified locally:** 46 tests pass on Python 3.11, 3.12, and 3.14; coverage on
+  3.12 is 97.65%. Ruff, package builds, dependency auditing, and Gitleaks passed.
+- **Remote checks:** check the latest [GitHub Actions run](https://github.com/yassineeljal/SecretSense/actions)
+  before claiming remote CI success; local checks do not establish that result.
+- **Next task:** sprint 2. Add reproducible synthetic-data generation and reviewed
+  negative examples under `ml/`, record provenance and template/source groups,
+  build at least 5,000 balanced examples, and add an exploration notebook. Keep
+  source/template groups separate across training, validation, and test sets.
+- **Still planned:** trained ML, calibrated scores, HTML/SARIF, Git-history scanning,
+  remediation playbooks, FastAPI, Next.js, deployment, PyPI, and optional Ollama.
+- **Standing instructions:** keep all project content in English. Update this
+  README and the relevant documentation as work progresses, record actual checks
+  and limitations, and never commit real credentials or invent evaluation metrics.
+
 ## Quick start
 
 Requires Python 3.11 or newer. Run from this repository's root:
@@ -67,7 +90,8 @@ The `ml/`, `api/`, and `web/` applications will be added in their respective spr
 - [Contribution guide](CONTRIBUTING.md)
 
 All code, comments, documentation, and user-facing text are maintained in English.
-Every functional change must include documentation and a progress entry.
+Every meaningful change must update this README's session handoff; functional
+changes must also update the relevant documentation and progress log.
 
 ## Development
 
