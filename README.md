@@ -10,7 +10,7 @@ and a Next.js demonstration site run locally.
 [![CI](https://github.com/yassineeljal/SecretSense/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yassineeljal/SecretSense/actions/workflows/ci.yml)
 [MIT license](LICENSE) · Python 3.11+ · Local scanning
 
-**Status:** sprints 0–6 are implemented and pushed. Sprint 7 adds six informational
+**Status:** sprints 0–6 are implemented and pushed; sprint 8 (optional local LLM review) is implemented locally without measured benefit. Sprint 7 adds six informational
 pages, interactive recorded benchmarks, privacy policy, portfolio hosting
 configuration, and release preparation. Public hosting and PyPI publication remain
 pending. Rules plus entropy remain the default; optional ML retains every finding.
@@ -25,6 +25,10 @@ home, pipeline, and recorded benchmarks; no scan input or real credentials.
 
 Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before work.
 
+- **Sprint 8 (local, uncommitted):** `--llm` adds advisory Ollama verdicts for generic
+  candidates; loopback-only, redacted prompts, JSON 1.3. 157 tests pass (93.07%); tested
+  only with a fake server. No real model was run, so no benefit is claimed. See
+  [CLI guide](docs/cli.md#optional-local-llm-review-sprint-8).
 - **Current milestone:** sprints 0–6 delivered; sprint 7 site/policy/release
   preparation implemented. The public deployment/publication milestone is pending.
 - **Latest implementation:** how-it-works, benchmarks, docs, model, security, and
@@ -44,7 +48,8 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   The [build-only release rehearsal passed](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726),
   producing wheel/sdist artifacts; publication was skipped. The runner setuptools
   audit failure from checkpoint `9e78ab0` is fixed. No deployment/publication occurred.
-- **Next concrete step:** configure an owner-selected portfolio host and
+- **Next concrete step:** install Ollama locally and measure the LLM benefit on a fresh
+  reserved set; separately, configure an owner-selected portfolio host and
   TestPyPI/PyPI projects following [the release guide](docs/release.md), review
   host privacy/logging, then verify deployment and publication. Public scanning
   first needs authentication, TLS/ingress/logging review, and shared limits.
@@ -52,7 +57,7 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   with the bounded single-worker API on port 8000. These are local review servers.
 - **Still planned:** public launch, package publication, supplied biography/profile
   links, independent review, unseen-repository evaluation, calibration, repository
-  URL input, and optional Ollama. Host/project ownership and privacy contact are
+  URL input, and a measured Ollama benefit. Host/project ownership and privacy contact are
   not supplied; do not infer them from the Git remote.
 - **Standing instructions:** English project content; keep this handoff and relevant
   guides current; keep scanning local; never commit real credentials or invent metrics.

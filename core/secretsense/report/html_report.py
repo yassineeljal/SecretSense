@@ -16,6 +16,7 @@ def render_html(report: ScanReport) -> str:
             item.masked_value,
             f"{item.model_score:.4f}" if item.model_score is not None else "Unscored",
             item.model_decision or "Unscored",
+            item.llm_verdict or "Unreviewed",
             item.explanation,
             item.commit or "Working tree",
             " ".join(item.remediation.steps) if item.remediation else "",
@@ -54,7 +55,7 @@ A clean report is not a security guarantee.</p>
 <div class="table"><table><caption>Masked findings</caption>
 <thead><tr><th scope="col">Location</th><th scope="col">Service</th><th scope="col">Rule</th>
 <th scope="col">Severity</th><th scope="col">Masked value</th><th scope="col">ML score</th>
-<th scope="col">ML decision</th><th scope="col">Explanation</th>
+<th scope="col">ML decision</th><th scope="col">LLM verdict</th><th scope="col">Explanation</th>
 <th scope="col">Git snapshot</th><th scope="col">Remediation</th></tr></thead>
 <tbody>{"".join(rows)}</tbody></table></div>
 {"<p>No candidates found in the scanned files.</p>" if not rows else ""}

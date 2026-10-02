@@ -53,7 +53,7 @@ JSON, and invalid Unicode are rejected. Content must use `application/json` and
 UTF-8. Compressed requests are unsupported. Archives, paths, Git history, model
 uploads, and repository URLs are unsupported; `/api/scan/repo` returns 404.
 
-A successful response uses the core JSON 1.2 report shape, with `complete: true`,
+A successful response uses the core JSON 1.3 report shape, with `complete: true`,
 `files_scanned: 1`, all findings retained, no model scores, remediation guidance,
 and every `masked_value` set to `[REDACTED]`. The API deliberately redacts more
 than the CLI, which retains a short prefix/suffix for long values. A failure never

@@ -4,6 +4,35 @@ Every functional change must update this log and the relevant usage or design
 documentation. Every meaningful change must also update the README session
 handoff. Record actual validation separately from planned checks.
 
+## 2026-10-02 — Sprint 8: optional local LLM review (benefit unmeasured)
+
+### Delivered
+
+- Added `secretsense.llm.OllamaAdvisor` and `--llm` / `--llm-url`. Only generic entropy
+  candidates are reviewed; provider-format matches are never sent. Prompts hold the rule ID,
+  structural value facts, and one truncated source line with all detected values replaced.
+- Loopback-only `http` URLs, no redirects, bounded timeout and 64 KiB replies, strict JSON
+  verdicts (`likely-secret`, `likely-placeholder`, `unsure`), 25 reviews per file.
+- Verdicts are advisory and never remove findings or change exit codes. Advisor failures
+  are value-free, keep every finding, and make the scan incomplete (exit 2).
+- JSON schema 1.3 adds `llm` metadata and `llm_verdict`; console and HTML show verdicts.
+  History scans, the API, and the site do not support the option.
+- Updated the CLI guide, threat model, changelog, roadmap, and README.
+
+### Validation
+
+- 157 Python/API tests pass with 93.07% coverage, using a loopback fake Ollama server
+  (10 new tests: URL validation, prompt redaction, retention, invalid output, unreachable
+  server, CLI). Ruff passes; the sdist/wheel build succeeded; pip-audit reported nothing
+  new apart from skipping the editable package. Web tests and remote CI were not rerun.
+
+### Handoff
+
+**No real Ollama server was available**, so no model was queried and **no measured benefit
+is claimed**. The roadmap's measured-benefit deliverable remains open: it needs Ollama
+installed locally and a fresh reserved set, not the two observed holdouts. Prompt-injection
+resistance is untested against real models. Public launch still needs owner-selected hosting.
+
 ## 2026-10-01 — Sprint 7: informational site and release preparation
 
 ### Delivered

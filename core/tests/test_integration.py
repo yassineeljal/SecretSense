@@ -65,7 +65,7 @@ def test_scores_never_filter_or_change_severity(score, decision):
         render_html(report),
     ):
         assert value not in output
-    assert json.loads(render_json(report))["schema_version"] == "1.2"
+    assert json.loads(render_json(report))["schema_version"] == "1.3"
 
 
 def test_empty_candidates_and_bounded_batches():

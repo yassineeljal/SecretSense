@@ -16,6 +16,8 @@ python -m secretsense scan ./my-project
 | `--format`, `-f` | `console` | `console`, `json`, `html`, or `sarif` |
 | `--model` | Disabled | Trusted local model pickle; annotates every candidate |
 | `--model-sha256` | None | Required with `--model`; digest from independently trusted metadata |
+| `--llm` | None | Local Ollama model name; adds advisory verdicts to generic entropy candidates |
+| `--llm-url` | `http://127.0.0.1:11434` | Ollama address; only loopback `http` URLs are accepted |
 | `--max-bytes` | `1048576` | Maximum bytes read per file; larger files are skipped |
 | `--max-files` | `10000` | Maximum directory entries visited, including ignored entries and directories |
 
@@ -39,7 +41,7 @@ levels and `.gitignore` files over 1 MiB produce incomplete-scan errors.
 | `2` | Invalid arguments, unreadable input, or a traversal/configuration limit |
 
 Incomplete scans take precedence over candidate exit codes. JSON reports contain
-`schema_version` (now `1.2`), `engine`, `findings`, `files_scanned`, `entries_skipped`,
+`schema_version` (now `1.3`), `engine`, `findings`, `files_scanned`, `entries_skipped`,
 `errors`, `model`, `history`, and `complete`. `complete` means no processing error occurred within the chosen
 scope; intentionally skipped files remain excluded. Invalid CLI arguments or a
 missing target produce an error on stderr, not a JSON report.
@@ -95,7 +97,7 @@ Rules mode has `engine: "rules-and-entropy"` and `model: null`. ML mode uses
 `score_kind: "uncalibrated-positive-class-score"`, and
 `policy: "annotate-all-candidates"`. JSON retains full numeric scores; console and
 HTML round display to four decimals. Decisions use the unrounded score.
-Schema 1.1 introduced model fields; schema 1.2 adds history and remediation.
+Schema 1.1 introduced model fields; schema 1.2 adds history and remediation; schema 1.3 adds `llm` metadata and `llm_verdict`.
 Strict consumers must accept the current version.
 
 Scoring uses batches of at most 256 numeric vectors. Repeated identical values
@@ -187,3 +189,19 @@ SARIF uses `[REDACTED]` and includes no snippets or source-content hashes. URIs 
 percent-encoded paths relative to the scan root. Fingerprints use only metadata
 and are not stable when line numbers move. The [GitHub Action](github-action.md)
 converts paths to workspace-relative locations and leaves upload to the caller.
+
+## Optional local LLM review (sprint 8)
+
+`--llm <model>` asks a local Ollama server to review **generic entropy candidates only**.
+Provider-format matches (AWS, GitHub, and so on) are never sent. Each request contains
+the rule ID, structural facts about the value (length, entropy, character classes), and
+the source line, truncated to 200 characters, with every detected value replaced by a marker.
+Detected values and masked fragments are never sent. Output must be strict JSON with one verdict
+(`likely-secret`, `likely-placeholder`, `unsure`); anything else fails the review.
+
+Verdicts are advisory: every finding stays in the report and exit codes are unchanged.
+At most 25 reviews run per file; remaining candidates stay unreviewed. A server error,
+timeout, or invalid reply keeps all findings, drops that file's verdicts, and makes the
+scan incomplete (exit 2). The URL must be loopback `http`; redirects are not followed.
+`--llm` is not supported with `--history`, the API, or the site. Prompts are untrusted
+text, so a hostile source line could still sway a verdict; verdicts must not gate decisions.

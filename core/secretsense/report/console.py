@@ -13,6 +13,11 @@ def render_console(report: ScanReport) -> str:
             f"Local ML: uncalibrated scores; threshold {report.model['threshold']:g}; "
             "all candidates retained. Scores do not establish credential validity."
         )
+    if report.llm:
+        lines.append(
+            "Local LLM: advisory verdicts for generic candidates only; "
+            "all candidates retained. Verdicts do not establish credential validity."
+        )
     for finding in report.findings:
         # JSON quoting prevents filenames from injecting terminal control sequences.
         location = f"{json.dumps(finding.path, ensure_ascii=True)}:{finding.line}:{finding.column}"
@@ -23,6 +28,7 @@ def render_console(report: ScanReport) -> str:
                 if finding.model_score is not None
                 else ""
             )
+            + (f" llm={finding.llm_verdict}" if finding.llm_verdict else "")
         )
         if finding.commit:
             lines.append(f"  Git snapshot: {finding.commit}")

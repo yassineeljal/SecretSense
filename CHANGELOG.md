@@ -12,4 +12,7 @@
 - Portfolio-only hosting configuration, privacy policy, package metadata/license,
   and manual release workflow with build-only default and guarded OIDC publication.
 
+- Optional advisory Ollama review of generic candidates (`--llm`), loopback-only, redacted
+  prompts, JSON schema 1.3; no measured benefit is claimed.
+
 No hosted service, version tag, or PyPI publication is claimed.

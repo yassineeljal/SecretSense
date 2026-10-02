@@ -116,3 +116,12 @@ guarantee and must be documented before launch. The release workflow defaults to
 build-only and grants OIDC only to a separate publish job; publication additionally
 requires an enabled repository variable, matching version tag, successful push CI
 for that commit, and separately configured protected registry environments.
+
+## Optional local LLM review
+
+Assets: source lines near generic candidates. Boundary: loopback-only Ollama, enforced
+by URL validation with no redirects. Mitigations: only generic candidates are sent, detected
+values are replaced by markers and never sent, lines are truncated, replies are size-capped
+and strictly parsed, and verdicts never suppress findings. Residual risks: a non-detected
+secret on the same line is sent to the local server; prompt injection from scanned text can
+bias a verdict; a local port may be served by a different process. Remote providers are unsupported.

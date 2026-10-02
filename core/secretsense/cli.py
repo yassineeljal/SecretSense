@@ -6,6 +6,7 @@ from typing import Annotated
 
 import typer
 
+from secretsense.llm import OllamaAdvisor
 from secretsense.model.predict import LocalPredictor
 from secretsense.report.console import render_console
 from secretsense.report.html_report import render_html
@@ -48,11 +49,19 @@ def scan(
     model_sha256: Annotated[
         str | None, typer.Option(help="SHA-256 from independently trusted training metadata.")
     ] = None,
+    llm: Annotated[
+        str | None,
+        typer.Option(help="Local Ollama model for advisory review of generic candidates."),
+    ] = None,
+    llm_url: Annotated[str, typer.Option(help="Loopback Ollama URL.")] = "http://127.0.0.1:11434",
 ):
     """Scan UTF-8 files using credential patterns and assignment entropy."""
     try:
         if (model is None) != (model_sha256 is None):
             raise ValueError("Provide both --model and --model-sha256 to enable local ML.")
+        if llm is not None and history:
+            raise ValueError("--llm is not supported with --history.")
+        advisor = OllamaAdvisor(llm, llm_url) if llm is not None else None
         predictor = (
             LocalPredictor.load(model, expected_sha256=model_sha256) if model is not None else None
         )
@@ -68,7 +77,13 @@ def scan(
                 predictor=predictor,
             )
             if history
-            else scan_path(path, max_bytes=max_bytes, max_files=max_files, predictor=predictor)
+            else scan_path(
+                path,
+                max_bytes=max_bytes,
+                max_files=max_files,
+                predictor=predictor,
+                advisor=advisor,
+            )
         )
     except (ValueError, OSError) as error:
         message = str(error) if isinstance(error, ValueError) else "Unable to access scan target."
