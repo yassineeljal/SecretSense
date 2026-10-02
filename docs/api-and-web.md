@@ -178,3 +178,29 @@ the site and runs browser tests. Dependabot includes npm. See
 [the progress log](progress.md) for checks actually run locally; configuration is
 not evidence of a remote CI run. The core wheel contains scanner code; `api/` and
 `web/` run from this checkout and are not claimed as published application packages.
+
+## Sprint 7 informational pages and portfolio mode
+
+The site now includes `/how-it-works`, `/benchmarks`, `/docs`, `/model`, `/security`,
+and `/about`. Header/footer and guide navigation connect the pages. The benchmark
+explorer reads `ml/results/baseline.json` and `ml/results/xgboost.json` at build time
+and passes only selected aggregate metrics to its client component. Experiment
+selection keeps the historical and fresh synthetic populations separate; method
+selection updates precision/recall/F1 bars and a labeled confusion matrix. No new
+training, evaluation, or model-quality result is claimed.
+
+Documentation copy buttons copy public setup commands only and provide a manual
+fallback when clipboard access fails. Page metadata, keyboard controls, live
+announcements, responsive layouts, and reduced motion remain supported. The about
+page uses the Git remote identity without inventing a biography or LinkedIn link.
+
+`npm run build:portfolio` disables scan input and loopback API access in the CSP,
+and directs visitors to local installation. `npm run test:portfolio` validates that
+build without starting any API. This configuration is intended for a future
+portfolio host; it is not a public scanning service. Rebuild with `npm run build`
+to return to the local demo. See [hosting/release preparation](release.md) and the
+[privacy policy](../PRIVACY.md).
+
+Browser coverage also checks every guide route on desktop/mobile, aggregate metric
+agreement, confusion-matrix orientation, copy success/failure, and portfolio input
+exclusion. The local suite has 18 checks and the portfolio suite has two.

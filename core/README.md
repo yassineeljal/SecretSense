@@ -24,13 +24,19 @@ Sprint 5 adds `secretsense scan PATH --history`, `--format sarif`, service-speci
 remediation in every format, and JSON schema 1.2 with history/commit/blob metadata.
 History reads local objects with explicit bounds and never checks out source or
 fetches remote objects. `from secretsense import scan_history` exposes the same
-engine. See [CLI documentation](../docs/cli.md), [playbooks](../docs/remediation.md),
-and the root [GitHub Action](../docs/github-action.md). XGBoost is an optional
+engine. See [CLI documentation](https://github.com/yassineeljal/SecretSense/blob/main/docs/cli.md), [playbooks](https://github.com/yassineeljal/SecretSense/blob/main/docs/remediation.md),
+and the root [GitHub Action](https://github.com/yassineeljal/SecretSense/blob/main/docs/github-action.md). XGBoost is an optional
 `experiments` dependency for offline comparison only; the CLI predictor is unchanged.
 
 
 Sprint 6 adds an optional `api` dependency extra for the checkout's FastAPI service.
-Install `./core[api]` and follow [the local API/site guide](../docs/api-and-web.md).
+Install `./core[api]` and follow [the local API/site guide](https://github.com/yassineeljal/SecretSense/blob/main/docs/api-and-web.md).
 The wheel still contains only the scanner; `api/` and the Next.js `web/` site run
 from the repository. Web scanning keeps the rules/entropy default and fully
 redacts values and filenames; no source is persisted or remotely verified.
+
+The package metadata includes repository/documentation URLs and bundles the MIT
+license. Version 0.1.0 remains unreleased. The repository's manual release workflow
+defaults to building and validating artifacts; PyPI publication requires separately
+configured ownership and trusted publishing. See the
+[release guide](https://github.com/yassineeljal/SecretSense/blob/main/docs/release.md).

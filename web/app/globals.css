@@ -875,3 +875,257 @@ details li {
     scroll-behavior: auto !important;
   }
 }
+
+.guide h1 {
+  margin: 20px 0;
+  max-width: 850px;
+}
+.guide-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding: 22px 0;
+  margin: 28px 0 40px;
+  border-block: 1px solid var(--line);
+}
+.guide-nav a,
+.footer-links a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.guide-content {
+  display: grid;
+  gap: 42px;
+}
+.guide-content h2 {
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+.guide-content p {
+  color: var(--muted);
+  max-width: 850px;
+  margin-bottom: 16px;
+}
+.guide-content p:last-child {
+  margin-bottom: 0;
+}
+.guide-content code {
+  overflow-wrap: anywhere;
+}
+.guide-callout {
+  background: #e9eddf;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.pipeline {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.pipeline li {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 24px;
+  background: white;
+}
+.pipeline h2 {
+  font-size: 22px;
+  margin-top: 18px;
+}
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+footer {
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.control-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+}
+.control-label select {
+  margin: 0;
+  max-width: 100%;
+  font-size: 14px;
+}
+.experiment-description {
+  margin-top: 20px;
+}
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.guide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: white;
+}
+.guide caption {
+  text-align: left;
+  padding: 15px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.guide th,
+.guide td {
+  text-align: left;
+  padding: 14px;
+  border-top: 1px solid var(--line);
+}
+.guide thead {
+  background: #e9eddf;
+}
+.table-scroll td {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 28px 0;
+  align-items: center;
+}
+.metric-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0 6px;
+  font-size: 13px;
+}
+.metric-track {
+  background: #e3e9dc;
+  border-radius: 4px;
+  height: 12px;
+  overflow: hidden;
+}
+.metric-track span {
+  display: block;
+  height: 100%;
+  background: #527648;
+}
+.matrix td strong,
+.matrix td span {
+  display: block;
+}
+.matrix td strong {
+  font-size: 25px;
+}
+.matrix td span {
+  font-size: 10px;
+}
+.matrix tbody tr:first-child td:first-of-type,
+.matrix tbody tr:last-child td:last-child {
+  background: #edf4e4;
+}
+.matrix tbody tr:first-child td:last-child,
+.matrix tbody tr:last-child td:first-of-type {
+  background: #fbefdc;
+}
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 25px 0;
+}
+.policy-grid > div {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+.policy-grid strong,
+.policy-grid span {
+  display: block;
+}
+.policy-grid strong {
+  font-size: 22px;
+}
+.policy-grid span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.command-block {
+  background: #e9eddf;
+  border-radius: 9px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.command-block pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  margin: 0 0 18px;
+}
+.command-block > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 12px;
+}
+@media (max-width: 1000px) {
+  .pipeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .site-header {
+    height: auto;
+    min-height: 80px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-block: 16px;
+  }
+  .site-header nav {
+    flex-wrap: wrap;
+  }
+  .guide h1 {
+    font-size: 39px;
+  }
+  .guide-nav {
+    gap: 12px 20px;
+  }
+  .guide-content {
+    gap: 32px;
+    min-width: 0;
+  }
+  .guide-callout {
+    padding: 22px;
+  }
+  .pipeline,
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+  .policy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .guide th,
+  .guide td {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .control-label {
+    align-items: start;
+    flex-direction: column;
+  }
+  .matrix {
+    table-layout: fixed;
+  }
+}

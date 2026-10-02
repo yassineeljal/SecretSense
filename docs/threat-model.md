@@ -105,3 +105,14 @@ upload. Installation uses network package downloads; source scanning does not.
 Action inputs are data passed through environment variables, not shell fragments.
 Pin a reviewed Action commit and avoid running an untrusted checkout's local Action
 in a privileged workflow. Remediation steps are static advice, not executed commands.
+
+## Portfolio and release preparation
+
+Public portfolio builds have no scan form/upload or API request path in the rendered
+scanner page; CSP also excludes the loopback API. Hosting a local-mode build is not
+a supported public deployment. No Python service is deployed by the Vercel config.
+Host request metadata and infrastructure logs are outside the local non-persistence
+guarantee and must be documented before launch. The release workflow defaults to
+build-only and grants OIDC only to a separate publish job; publication additionally
+requires an enabled repository variable, matching version tag, successful push CI
+for that commit, and separately configured protected registry environments.

@@ -30,3 +30,13 @@ ESLint is pinned to 9.39.5 because the installed Next.js React lint plugin fails
 with ESLint 10's removed context APIs. Revisit this development-only compatibility
 pin when the plugin supports ESLint 10. npm currently marks ESLint 9 deprecated;
 the recorded npm audit found no known vulnerabilities.
+
+Sprint 7 adds six informational pages and interactive benchmark exploration from
+versioned aggregate JSON in `ml/results/`. The bundler root includes the repository
+so those build-time imports work; source datasets and model artifacts are not used.
+
+For a documentation-only hosted build, run `npm run build:portfolio`, followed by
+`npm run test:portfolio`. This removes scan input and loopback API access. The
+Vercel configuration selects that mode; no deployment has occurred. See the
+[hosting and release guide](../docs/release.md) for required project settings.
+Rebuild with `npm run build` before running the local scan tests or demo again.

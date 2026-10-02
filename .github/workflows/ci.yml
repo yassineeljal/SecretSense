@@ -11,6 +11,7 @@ jobs:
   python:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.11", "3.12", "3.13", "3.14"]
     steps:
@@ -20,6 +21,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: core/pyproject.toml
+      - run: python -m pip install --upgrade pip 'setuptools>=83' wheel
       - run: python -m pip install -e './core[dev,ml,plots,experiments,api]'
       - run: ruff check core ml api .github/actions-runner
       - run: ruff format --check core ml api .github/actions-runner
@@ -35,6 +37,7 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
+      - run: python -m pip install --upgrade pip 'setuptools>=83' wheel
       - run: python -m pip install -e './core[dev,ml,plots,experiments,api]'
       - run: pre-commit run --all-files
 
@@ -88,3 +91,5 @@ jobs:
         working-directory: web
         env:
           SECRETSENSE_PYTHON: python
+      - run: npm run build:portfolio && npm run test:portfolio
+        working-directory: web

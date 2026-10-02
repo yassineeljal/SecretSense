@@ -84,3 +84,15 @@ holds redacted results in memory across internal navigation, never in browser
 storage. Tailwind/global CSS provide responsive layouts and reduced motion.
 No external assets, analytics, or API keys are required. Both servers bind to
 loopback; authentication and deployment remain sprint 7 design work.
+
+## Informational site and release boundary
+
+Sprint 7 adds server-rendered guide pages plus a client benchmark explorer receiving
+only selected aggregate metrics from versioned JSON. There is no server-side scan
+route in Next.js. Local mode renders the existing client scanner; the portfolio
+build renders installation guidance at `/scan` and excludes loopback API connections
+from its CSP. Mode changes require a rebuild. The Vercel configuration builds only
+the portfolio. The core wheel now includes MIT licensing and project metadata.
+A separate manual release workflow defaults to validated build artifacts; gated
+publication requires independently configured registry ownership and environments.
+See [release preparation](release.md) for operational boundaries.

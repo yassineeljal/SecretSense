@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ScanSession } from "@/components/scan-session";
+import { guideLinks } from "@/components/guide";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,8 +31,12 @@ export default function RootLayout({
           <nav aria-label="Main navigation">
             <Link href="/scan">Scanner</Link>
             <Link href="/results">Results</Link>
+            <Link href="/docs">Docs</Link>
             <span className="local-badge">
-              <i /> Local demo
+              <i />{" "}
+              {process.env.NEXT_PUBLIC_SECRETSENSE_MODE === "portfolio"
+                ? "Portfolio"
+                : "Local demo"}
             </span>
           </nav>
         </header>
@@ -43,7 +48,13 @@ export default function RootLayout({
             SecretSense{" "}
             <span className="muted">/ Built for a closer look.</span>
           </span>
-          <span>Local processing. Redacted findings.</span>
+          <nav className="footer-links" aria-label="Project information">
+            {guideLinks.map(([href, label]) => (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            ))}
+          </nav>
         </footer>
       </body>
     </html>

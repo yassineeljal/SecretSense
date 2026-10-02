@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
+import path from "node:path";
+const portfolio = process.env.NEXT_PUBLIC_SECRETSENSE_MODE === "portfolio";
 const config: NextConfig = {
   poweredByHeader: false,
+  turbopack: { root: path.resolve(__dirname, "..") },
   async headers() {
     return [
       {
@@ -14,7 +17,9 @@ const config: NextConfig = {
             value:
               "default-src 'self'; script-src 'self' 'unsafe-inline'" +
               (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "") +
-              "; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' http://127.0.0.1:8000; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'",
+              "; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'" +
+              (portfolio ? "" : " http://127.0.0.1:8000") +
+              "; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'",
           },
         ],
       },

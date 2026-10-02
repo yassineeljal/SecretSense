@@ -4,12 +4,73 @@ Every functional change must update this log and the relevant usage or design
 documentation. Every meaningful change must also update the README session
 handoff. Record actual validation separately from planned checks.
 
+## 2026-10-01 — Sprint 7: informational site and release preparation
+
+### Delivered
+
+- Added how-it-works, benchmarks, documentation, model, security/privacy, and about
+  pages with page titles, shared navigation, responsive layouts, accessible controls,
+  and copyable public setup commands with failure feedback.
+- Added an interactive benchmark explorer that imports the recorded baseline and
+  XGBoost aggregate JSON directly at build time. Experiment and method selection
+  update precision/recall/F1 bars and labeled confusion matrices. Synthetic limits,
+  population differences, unfavorable historical recall, finding retention, and
+  source links remain explicit. No model training or evaluation was rerun.
+- Added a portfolio build mode: home links to local setup, `/scan` has no input or
+  upload, and CSP excludes the loopback API. The existing local demo is preserved.
+  Vercel configuration selects portfolio mode; no API hosting is configured.
+- Added privacy policy, changelog, hosting/release guide, README static/GIF previews
+  from redacted/aggregate pages, and a live GitHub CI badge. About uses only the
+  repository identity; no author biography or LinkedIn information is invented.
+- Added manual release preparation with build-only default, wheel/sdist checks,
+  fresh-environment smoke test, artifact retention, and separate OIDC publishing.
+  Publishing requires an enabling variable, exact version tag, successful push CI
+  for the commit, and separately configured registry ownership/protected environments.
+  Added package project URLs and bundled the MIT license.
+- Pushed prior sprint 2–6 work as `9e78ab0`. Its first remote CI run passed browser,
+  hooks, Action smoke, and all Python test steps, but the Python 3.11 audit failed
+  on runner-bundled setuptools 79.0.1 (PYSEC-2026-3447; fix 83.0.0). Updated CI to
+  upgrade packaging tools before installation and disabled matrix fail-fast so
+  independent results finish. No vulnerability exclusion was added.
+- Updated the root/core/web READMEs, architecture, API/site, benchmarks, roadmap,
+  threat model, security, contribution, and release documentation.
+
+### Validation
+
+- 147 Python/API tests pass with 92.79% coverage at the delivery checkpoint.
+- 18 Chromium local-site checks pass across desktop/mobile emulation, including
+  existing live scans plus all guide routes, responsive layouts, every exposed
+  benchmark method versus the JSON evidence, matrix orientation, and clipboard
+  success/failure. Two additional portfolio checks pass without an API process.
+- Local and portfolio production Next.js builds, TypeScript, ESLint, Prettier,
+  npm audit (zero vulnerabilities), Ruff, Python isolated sdist/wheel build,
+  Twine strict metadata checks, pip-audit, and actionlint pass. The built wheel
+  installs and scans in a fresh environment outside the checkout; it includes the
+  MIT license and excludes datasets/model artifacts.
+- Visually inspected desktop and mobile benchmark pages. README captures contain
+  only the illustrative redacted home panel, pipeline, and aggregate metrics.
+- Remote verification of the packaging-tool fix and build-only release rehearsal
+  will be recorded after pushing this work. No hosted deployment or registry
+  publication has been attempted. Existing Starlette and ESLint tooling caveats
+  remain as recorded in sprint 6.
+
+### Handoff
+
+Sprint 7's site, policy, and release preparation are implemented. Its roadmap
+promise of a public, deployed, published product is **not complete**. No host/PyPI
+project was supplied; the optional hosting question was unanswered and preparation
+was used as the stated default. Required next steps are remote CI/release rehearsal,
+owner-selected host/project configuration, privacy contact/log review, and verified
+publication. The public API remains deferred pending authentication and shared
+controls; use portfolio mode for a documentation-only host. Independent evaluation,
+calibration, and optional Ollama remain future work.
+
 ## 2026-10-01 — Sprint 2–6 delivery checkpoint
 
 - Revalidated the accumulated sprint 2–6 implementation before committing and pushing
   at the user's request: 147 pytest checks pass with 92.79% coverage; Ruff,
   isolated Python sdist/wheel build, pip-audit, web lint/format/build/typecheck,
-  npm audit, and all pre-commit hooks pass.
+  npm audit, all 12 existing desktop/mobile browser checks, and all pre-commit hooks pass.
 - Sprint 7 follows this checkpoint. Remote CI, deployment, and package publication
   are separate steps; their outcomes will be recorded when established.
 

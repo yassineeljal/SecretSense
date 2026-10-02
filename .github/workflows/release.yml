@@ -1,0 +1,96 @@
+name: Release preparation
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Build artifacts only, or publish a reviewed version tag
+        type: choice
+        default: build
+        options: [build, testpypi, pypi]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Check publication prerequisites
+        if: inputs.target != 'build'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_SHA: ${{ github.sha }}
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import tomllib
+          from pathlib import Path
+          version = tomllib.loads(Path('core/pyproject.toml').read_text())['project']['version']
+          if os.environ['PUBLISHING_ENABLED'] != 'true':
+              raise SystemExit('Configure project ownership, trusted publishing, and protected environments first.')
+          if os.environ['RELEASE_REF'] != f'refs/tags/v{version}':
+              raise SystemExit('Publication requires the tag matching the package version.')
+          runs = json.loads(subprocess.check_output([
+              'gh', 'run', 'list', '--workflow', 'ci.yml', '--commit',
+              os.environ['RELEASE_SHA'], '--event', 'push', '--json', 'conclusion'
+          ]))
+          if not any(run['conclusion'] == 'success' for run in runs):
+              raise SystemExit('A successful push CI run is required for this exact commit.')
+          PY
+      - run: python -m pip install --upgrade pip 'setuptools>=83' wheel
+      - run: python -m pip install -e './core[dev,ml,plots]' twine
+      - run: ruff check core && ruff format --check core
+      - run: pytest core/tests
+      - run: python -m build core
+      - run: python -m twine check --strict core/dist/*
+      - run: pip-audit --skip-editable
+      - name: Smoke-test the built wheel outside the checkout
+        run: |
+          python -m venv "$RUNNER_TEMP/release-smoke"
+          "$RUNNER_TEMP/release-smoke/bin/python" -m pip install core/dist/*.whl
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/release-smoke/bin/python" -c 'from secretsense import scan_text; assert not scan_text("print(42)", filename="example.py")'
+          "$RUNNER_TEMP/release-smoke/bin/secretsense" --help
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        with:
+          name: python-distributions
+          path: core/dist/*
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    if: inputs.target != 'build'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.target }}
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: python-distributions
+          path: dist/
+      - name: Publish to TestPyPI
+        if: inputs.target == 'testpypi'
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+      - name: Publish to PyPI
+        if: inputs.target == 'pypi'
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1

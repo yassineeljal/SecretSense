@@ -142,7 +142,8 @@ Use four notebooks for exploration, feature work, model comparison, and errors.
 ## Delivery sprints
 
 A sprint is a suggested week of work, not an automatic commitment to elapsed time.
-Sprints 0–6 are implemented locally; sprint 7 is next. Sprint 2's reproducible
+Sprints 0–6 are implemented; sprint 7 informational pages and release preparation
+are implemented locally. Public hosting and PyPI publication remain pending. Sprint 2's reproducible
 CSV is generated locally and Git-ignored; its generators, negative review catalog,
 manifest, and exploration notebook are maintained in `ml/`. Review here means
 local template inspection, not independent human adjudication. See the
@@ -178,8 +179,11 @@ model-card, and benchmark documents establish limits before those features ship.
 
 Sprint 6 delivers bounded in-memory text scanning, health/engine information,
 fully redacted API reports, and local home/scan/results pages with API and browser
-tests. Repository URLs, archives, hosted access, API model loading, and the wider
-informational site pages remain planned. See [the API/site guide](api-and-web.md).
+tests. Repository URLs, archives, hosted scanning, and API model loading remain planned.
+Sprint 7 supplies the six informational pages, interactive recorded benchmarks,
+privacy policy, portfolio hosting configuration, and a guarded manual release
+workflow. Hosting accounts and registry ownership are not established, so the
+sprint 7 public/deployed/published deliverable is not yet complete. See [the API/site guide](api-and-web.md).
 
 ## Definition of done
 

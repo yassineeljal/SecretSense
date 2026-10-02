@@ -1,5 +1,6 @@
 import Link from "next/link";
 export default function Home() {
+  const portfolio = process.env.NEXT_PUBLIC_SECRETSENSE_MODE === "portfolio";
   return (
     <>
       <section className="hero">
@@ -18,8 +19,12 @@ export default function Home() {
             next.
           </p>
           <div className="actions">
-            <Link className="button primary" href="/scan">
-              Try the scanner <span aria-hidden="true">↗</span>
+            <Link
+              className="button primary"
+              href={portfolio ? "/docs" : "/scan"}
+            >
+              {portfolio ? "Run locally" : "Try the scanner"}{" "}
+              <span aria-hidden="true">↗</span>
             </Link>
             <a className="text-link" href="#local-cli">
               Use the CLI <span aria-hidden="true">↓</span>
@@ -78,11 +83,17 @@ export default function Home() {
         </div>
         <div>
           <strong>In memory</strong>
-          <span>Demo inputs are not saved</span>
+          <span>
+            {portfolio ? "Local demo processing" : "Demo inputs are not saved"}
+          </span>
         </div>
         <div>
           <strong>Your machine</strong>
-          <span>Loopback API processing</span>
+          <span>
+            {portfolio
+              ? "Install the local scanner"
+              : "Loopback API processing"}
+          </span>
         </div>
       </section>
       <section className="section">

@@ -13,7 +13,14 @@ If a real credential is exposed, revoke or rotate it with the provider and revie
 its use. Deleting a file does not remove the credential from Git history.
 
 The current scanner runs locally, makes no network calls, and does not write
-scanned contents to disk. Console and JSON reports mask detected values. Reports
+scanned contents to disk. Console, JSON, HTML, and SARIF reports mask detected values. Reports
 still include filenames, locations, service labels, and parts of matched values;
 treat them as sensitive. Local processes and crash dumps may inspect process
 memory. See [the threat model](docs/threat-model.md) for limits and planned controls.
+
+The loopback API uses disposable bounded workers and fully redacts values and
+filenames. The local browser demo keeps redacted reports in memory. Public
+portfolio mode accepts no scan input; the API is not approved for public ingress.
+See the [privacy policy](PRIVACY.md), [API guide](docs/api-and-web.md), and
+[hosting/release preparation](docs/release.md). No application-level guarantee
+extends to browser extensions, OS swap, or infrastructure logging.

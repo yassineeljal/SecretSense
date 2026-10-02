@@ -120,3 +120,12 @@ Report provenance includes source/protocol/dataset/artifact checksums, environme
 all selection trials, coverage, confusion matrices, and single-run total time.
 Time is informational, not a statistically established performance benchmark.
 The observed new holdout must not become tuning data for the next experiment.
+
+## Website explorer
+
+The `/benchmarks` page imports the two aggregate reports above at build time.
+Readers can switch experiments and inspect each method's precision/recall/F1 and
+confusion matrix. Counts and percentages derive from the reports, not a separately
+maintained metric copy. The page labels both populations synthetic, separates
+filter experiments from retained CLI annotations, and links back to source evidence.
+Browser checks compare every exposed method to the aggregate reports.

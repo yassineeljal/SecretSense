@@ -65,3 +65,11 @@ The exact `web/.next/` output tree is excluded from Gitleaks because Next.js
 generates signing/encryption keys in build manifests and caches. It is Git-ignored
 and must never contain maintained source. Application source, configuration, and
 lockfiles remain scanned; do not add real credentials to generated output.
+
+For site/release changes, also validate `npm run build:portfolio` and
+`npm run test:portfolio` from `web/`, then rebuild local mode if using the demo.
+Keep benchmark values sourced from the existing aggregate reports; never present
+synthetic results as real-world accuracy. Run `actionlint` for workflow changes
+and `python -m twine check --strict core/dist/*` for release metadata. Keep
+`core/LICENSE` identical to the root MIT license. Read [release preparation](docs/release.md)
+before configuring a host or registry; build artifacts do not imply publication.

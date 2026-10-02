@@ -7,45 +7,51 @@ JSON, HTML, and SARIF reports, service-specific patterns, and entropy checks. Op
 local ML adds experimental scores without removing findings. A bounded FastAPI service
 and a Next.js demonstration site run locally.
 
-**Status:** sprints 0–6 are implemented locally, including a bounded API and
-responsive home/scan/results pages, remediation, Git history, SARIF, a reusable
-Action, and a fresh XGBoost comparison. Rules plus entropy remain the
-default; the integrated baseline loses recall when used as a filter. There is no hosted
-service or PyPI release yet. The original project
-plan is preserved in English in [the roadmap](docs/roadmap.md).
+[![CI](https://github.com/yassineeljal/SecretSense/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yassineeljal/SecretSense/actions/workflows/ci.yml)
+[MIT license](LICENSE) · Python 3.11+ · Local scanning
+
+**Status:** sprints 0–6 are implemented and pushed. Sprint 7 adds six informational
+pages, interactive recorded benchmarks, privacy policy, portfolio hosting
+configuration, and release preparation. Public hosting and PyPI publication remain
+pending. Rules plus entropy remain the default; optional ML retains every finding.
+The full intended product is described in [the roadmap](docs/roadmap.md).
+
+![SecretSense portfolio home with an illustrative redacted finding](docs/assets/site-preview.png)
+
+[Animated site preview](docs/assets/site-preview.gif) — three captured views of the
+home, pipeline, and recorded benchmarks; no scan input or real credentials.
 
 ## Session handoff
 
-Keep this section current after every meaningful change so a new session can
-resume without access to previous conversations. Read this README, `AGENTS.md`,
-and [the progress log](docs/progress.md) before starting work.
+Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before work.
 
-- **Current milestone:** sprints 0–6 implemented locally.
-- **Latest implementation:** loopback FastAPI text scanning with streaming byte,
-  rate, concurrency, request/worker deadline, and report limits; disposable workers;
-  fully redacted API values/filenames; Next.js home, scan/upload, and results pages
-  with severity filters and remediation. See [local API/site setup](docs/api-and-web.md).
-- **Measured limitation:** rules plus entropy remain the default. The previously
-  recorded synthetic forest/XGBoost comparison offers no XGBoost advantage; the
-  original filter loses recall. The API exposes no ML scores, and this sprint
-  makes no new model-quality claim. See the [model card](docs/model-card.md).
-- **Verified locally:** 147 Python/API tests (92.79% coverage) and 12 Chromium desktop/mobile browser checks pass;
-  Ruff, web lint/type/format checks, Python and Next.js builds, and Python/npm
-  dependency audits pass. Exact final counts and checks are recorded in
-  [progress](docs/progress.md). Pages were visually inspected on desktop and mobile.
-- **Remote checks:** sprints 2–6 are being committed and pushed in this session.
-  Python/API and web/browser CI results will be checked after the push. No deployment
-  or publication has occurred.
-- **Next task:** sprint 7: add benchmark/how-it-works/model/security pages from
-  recorded evidence, then prepare hosting/release configuration and policy docs.
-  Review authentication, ingress/logging, and shared limit controls before any
-  public deployment; the current unauthenticated demo is for loopback use only.
-- **Still planned:** independent human-reviewed data, calibration, unseen-repository
-  evaluation, repository URL fetching, wider informational pages, deployment, PyPI,
-  and optional Ollama. Both model holdouts are observed; future tuning needs a fresh one.
-- **Standing instructions:** keep all project content in English. Update this
-  README and the relevant documentation as work progresses, record actual checks
-  and limitations, and never commit real credentials or invent evaluation metrics.
+- **Current milestone:** sprints 0–6 delivered; sprint 7 site/policy/release
+  preparation implemented. The public deployment/publication milestone is pending.
+- **Latest implementation:** how-it-works, benchmarks, docs, model, security, and
+  about pages; evidence-driven benchmark selection and confusion matrices; command
+  copying; portfolio mode with scanning disabled; Vercel configuration; manual
+  build/TestPyPI/PyPI workflow with guarded publication; package metadata/license.
+- **Measured limitation:** no new ML experiment. The historical filter loses
+  recall, the fresh forest/XGBoost filters tie, and both observed synthetic
+  holdouts must not become tuning data. See [the model card](docs/model-card.md).
+- **Verified locally:** 147 Python/API tests (92.79% coverage), 18 desktop/mobile
+  local-site checks, and two portfolio checks. Ruff, web lint/format/type/build,
+  package build/Twine validation, and dependency audits pass. Desktop/mobile
+  benchmark layouts were visually inspected. See [progress](docs/progress.md).
+- **Remote checks:** checkpoint `9e78ab0` pushed to `origin/main`. Its web/hooks/Action
+  checks passed; the Python 3.11 dependency audit found vulnerable runner-bundled
+  setuptools. Sprint 7 upgrades the packaging tools and keeps auditing enabled;
+  the fixed run is pending. No deployment or publication has occurred.
+- **Next concrete step:** verify Sprint 7 remote CI and the build-only release
+  rehearsal, then configure an owner-selected portfolio host and TestPyPI/PyPI
+  projects following [the release guide](docs/release.md). Public scanning needs
+  authentication, TLS/ingress/logging review, and shared limits first.
+- **Still planned:** public launch, package publication, supplied biography/profile
+  links, independent review, unseen-repository evaluation, calibration, repository
+  URL input, and optional Ollama. Host/project ownership and privacy contact are
+  not supplied; do not infer them from the Git remote.
+- **Standing instructions:** English project content; keep this handoff and relevant
+  guides current; keep scanning local; never commit real credentials or invent metrics.
 
 ## Quick start
 
@@ -105,6 +111,8 @@ This is a local demonstration; no hosted service is available.
 - Optional local model annotations with trusted checksums; all findings remain visible.
 - Bounded local FastAPI text scans, health checks, and active-engine information.
 - Responsive Next.js home/scan/results, file input, severity filters, and remediation.
+- Six informational pages, interactive recorded benchmarks, and a portfolio build
+  that accepts no scan input; hosting and release workflow configuration.
 - Unit, CLI, API, and browser tests; Python/web CI, dependency auditing, and Gitleaks hooks.
 - Deterministic synthetic-data generation, reviewed negative-template rationale,
   a 6,000-row balanced local CSV, grouped train/validation/test splits, and exploration.
@@ -138,6 +146,8 @@ credentials; synthetic data does not establish real-world model performance.
 ## Documentation
 
 - [Local API and website](docs/api-and-web.md)
+- [Hosting and release preparation](docs/release.md), [changelog](CHANGELOG.md), and
+  [privacy policy](PRIVACY.md)
 - [CLI and library usage](docs/cli.md)
 - [Detection rules](docs/detection.md) and [remediation playbooks](docs/remediation.md)
 - [GitHub Action integration](docs/github-action.md)
