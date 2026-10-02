@@ -38,14 +38,18 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   local-site checks, and two portfolio checks. Ruff, web lint/format/type/build,
   package build/Twine validation, and dependency audits pass. Desktop/mobile
   benchmark layouts were visually inspected. See [progress](docs/progress.md).
-- **Remote checks:** checkpoint `9e78ab0` pushed to `origin/main`. Its web/hooks/Action
-  checks passed; the Python 3.11 dependency audit found vulnerable runner-bundled
-  setuptools. Sprint 7 upgrades the packaging tools and keeps auditing enabled;
-  the fixed run is pending. No deployment or publication has occurred.
-- **Next concrete step:** verify Sprint 7 remote CI and the build-only release
-  rehearsal, then configure an owner-selected portfolio host and TestPyPI/PyPI
-  projects following [the release guide](docs/release.md). Public scanning needs
-  authentication, TLS/ingress/logging review, and shared limits first.
+- **Remote checks:** implementation `5a9024d` is pushed to `origin/main` and
+  [CI passed](https://github.com/yassineeljal/SecretSense/actions/runs/36950882794)
+  on Python 3.11–3.14, hooks, Action smoke, and Node 24 browser/build/audit jobs.
+  The [build-only release rehearsal passed](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726),
+  producing wheel/sdist artifacts; publication was skipped. The runner setuptools
+  audit failure from checkpoint `9e78ab0` is fixed. No deployment/publication occurred.
+- **Next concrete step:** configure an owner-selected portfolio host and
+  TestPyPI/PyPI projects following [the release guide](docs/release.md), review
+  host privacy/logging, then verify deployment and publication. Public scanning
+  first needs authentication, TLS/ingress/logging review, and shared limits.
+- **Local preview:** local mode is rebuilt and serving at `http://127.0.0.1:3000`,
+  with the bounded single-worker API on port 8000. These are local review servers.
 - **Still planned:** public launch, package publication, supplied biography/profile
   links, independent review, unseen-repository evaluation, calibration, repository
   URL input, and optional Ollama. Host/project ownership and privacy contact are

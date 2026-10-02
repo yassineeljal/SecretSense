@@ -76,7 +76,10 @@ until verified by their owner.
 ## Launch status
 
 - Informational pages, interactive recorded evidence, local demo, and portfolio
-  mode: implemented; see [progress](progress.md) for actual validation.
+  mode: implemented and verified by [remote CI](https://github.com/yassineeljal/SecretSense/actions/runs/36950882794).
+- [Build-only release rehearsal](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726):
+  passed at `5a9024d`, with wheel/sdist artifacts retained for seven days and the
+  publication job skipped. See [progress](progress.md) for full validation.
 - Host account/project, URL, privacy contact/logging review: not supplied.
 - PyPI/TestPyPI ownership, trusted publishers, protected release environments,
   version tags, and publication: not established.

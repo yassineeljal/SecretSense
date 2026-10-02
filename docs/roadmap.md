@@ -158,8 +158,8 @@ baseline) controls annotations only. Sprint 5 delivers service playbooks, bounde
 a reusable Action, an error-analysis notebook, and a separate XGBoost experiment
 with new candidate negatives and fresh grouped holdout evaluation. XGBoost offers
 no advantage over the retrained forest on that synthetic holdout. Both holdouts
-are now observed; future tuning needs another reserved set. Remote Action execution,
-independent human adjudication, and unseen-repository evaluation remain unverified.
+are now observed; future tuning needs another reserved set. Remote Action smoke execution is verified in sprint 7 CI; independent human
+adjudication and unseen-repository evaluation remain unverified.
 
 | Sprint | Work | Deliverable |
 | --- | --- | --- |

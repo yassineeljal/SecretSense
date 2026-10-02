@@ -7,8 +7,9 @@ runner temporary storage. It does not execute source from the scan target, uploa
 results, fetch history, or validate credentials remotely. Installation downloads
 Python/package dependencies; scanning itself stays local.
 
-The Action is implemented and tested locally. It is not published to Marketplace
-and no remote workflow success is claimed. In this checkout, use:
+The Action is implemented, tested locally, and its
+[remote smoke job passed](https://github.com/yassineeljal/SecretSense/actions/runs/36950882794)
+at implementation commit `5a9024d`. It is not published to Marketplace. In this checkout, use:
 
 ```yaml
 name: Secret scan
@@ -31,7 +32,7 @@ jobs:
           fail-on-findings: 'true'
 ```
 
-For another repository, once this code is available remotely, use
+For another repository, use
 `yassineeljal/SecretSense@<reviewed-full-commit-sha>` instead of `./`. The placeholder
 is deliberately not a release claim. Pin a reviewed commit. A local `./` Action
 uses that checkout's code; do not run an untrusted PR's Action definition in a

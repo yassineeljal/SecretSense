@@ -49,19 +49,26 @@ handoff. Record actual validation separately from planned checks.
   MIT license and excludes datasets/model artifacts.
 - Visually inspected desktop and mobile benchmark pages. README captures contain
   only the illustrative redacted home panel, pipeline, and aggregate metrics.
-- Remote verification of the packaging-tool fix and build-only release rehearsal
-  will be recorded after pushing this work. No hosted deployment or registry
-  publication has been attempted. Existing Starlette and ESLint tooling caveats
-  remain as recorded in sprint 6.
+- Implementation `5a9024d` is pushed to `origin/main`.
+  [Remote CI](https://github.com/yassineeljal/SecretSense/actions/runs/36950882794)
+  passes all seven jobs: Python 3.11–3.14, hooks, Action smoke, and Node 24 web.
+  This verifies the runner setuptools upgrade and both browser build modes on Linux.
+- The [build-only release rehearsal](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726)
+  passed, including fresh wheel installation, and retained `python-distributions`;
+  its publication job was skipped. No hosted deployment or registry publication
+  has been attempted. Existing Starlette and ESLint tooling caveats remain as
+  recorded in sprint 6. Pre-commit secret scanning, Markdown targets, and Git
+  whitespace checks pass.
+- Restored the local-mode build and loopback review servers on ports 3000 and 8000.
 
 ### Handoff
 
 Sprint 7's site, policy, and release preparation are implemented. Its roadmap
 promise of a public, deployed, published product is **not complete**. No host/PyPI
-project was supplied; the optional hosting question was unanswered and preparation
-was used as the stated default. Required next steps are remote CI/release rehearsal,
-owner-selected host/project configuration, privacy contact/log review, and verified
-publication. The public API remains deferred pending authentication and shared
+project was supplied, so hosting/release preparation is complete but launch remains
+pending. Remote CI and build-only release rehearsal are now verified. Required next
+steps are owner-selected host/project configuration, privacy contact/log review,
+and verified deployment/publication. The public API remains deferred pending authentication and shared
 controls; use portfolio mode for a documentation-only host. Independent evaluation,
 calibration, and optional Ollama remain future work.
 
