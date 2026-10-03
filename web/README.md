@@ -19,7 +19,7 @@ npm run format:check
 npm run typecheck
 npx playwright install chromium
 npm test
-npm audit
+npm audit --omit=dev
 ```
 
 The browser suite starts both production servers; keep ports 3000/8000 free.
@@ -29,7 +29,7 @@ Never enable traces, video, or input screenshots for real scan content.
 ESLint is pinned to 9.39.5 because the installed Next.js React lint plugin fails
 with ESLint 10's removed context APIs. Revisit this development-only compatibility
 pin when the plugin supports ESLint 10. npm currently marks ESLint 9 deprecated;
-the recorded npm audit found no known vulnerabilities.
+`npm audit --omit=dev` found no known vulnerabilities when last recorded. Plain `npm audit` currently flags `braces` (GHSA-vfj7-8cjw-p6xm) through `eslint-config-next`, a lint-only dependency that is not shipped.
 
 Sprint 7 adds six informational pages and interactive benchmark exploration from
 versioned aggregate JSON in `ml/results/`. The bundler root includes the repository

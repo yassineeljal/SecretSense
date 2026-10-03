@@ -162,7 +162,7 @@ npm run build
 npm run typecheck
 npx playwright install chromium
 npm test
-npm audit
+npm audit --omit=dev
 ```
 
 Playwright starts both local production servers itself, using `../.venv/bin/python`.

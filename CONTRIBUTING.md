@@ -57,7 +57,7 @@ against either observed holdout. Keep UBJ artifacts local and notebook outputs
 cleared. Git-history tests use temporary local synthetic repositories only.
 
 For API and site changes, follow [the local development guide](docs/api-and-web.md).
-Run the web lint, format, type, production build, Playwright, and npm audit checks.
+Run the web lint, format, type, production build, Playwright, and `npm audit --omit=dev` checks.
 Keep browser traces and source screenshots disabled; tests assemble synthetic
 credentials at runtime. Do not expose local demo servers as a hosted service.
 
