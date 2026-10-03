@@ -1,0 +1,78 @@
+{
+  "count_per_label_per_group": 60,
+  "elapsed_seconds": 842.5,
+  "generated_at": "2026-10-02",
+  "limitations": "Synthetic data, one small model, one run; not real-repository evidence.",
+  "model": "qwen2.5:3b",
+  "protocol": "docs/sprint8-llm-experiment.md",
+  "python": "3.12.3",
+  "results": {
+    "by_group": {
+      "deploy-yaml": {
+        "likely-secret": 117,
+        "no-candidate": 3
+      },
+      "env-settings": {
+        "likely-secret": 117,
+        "no-candidate": 3
+      },
+      "python-settings": {
+        "likely-secret": 77,
+        "no-candidate": 43
+      }
+    },
+    "by_kind": {
+      "cue-name": {
+        "likely-secret": 40,
+        "no-candidate": 20
+      },
+      "no-cue": {
+        "likely-secret": 60
+      },
+      "placeholder-value": {
+        "likely-secret": 51,
+        "no-candidate": 9
+      },
+      "positive": {
+        "likely-secret": 160,
+        "no-candidate": 20
+      }
+    },
+    "candidate_coverage": {
+      "0": {
+        "rows": 180,
+        "with_candidate": 151
+      },
+      "1": {
+        "rows": 180,
+        "with_candidate": 160
+      }
+    },
+    "drop_likely_placeholder": {
+      "kept": 311,
+      "precision": 0.5145,
+      "recall": 1.0
+    },
+    "drop_placeholder_and_unsure": {
+      "kept": 311,
+      "precision": 0.5145,
+      "recall": 1.0
+    },
+    "errors": 0,
+    "keep_everything": {
+      "kept": 311,
+      "precision": 0.5145,
+      "recall": 1.0
+    },
+    "outcomes": {
+      "likely-secret": 311,
+      "no-candidate": 49
+    },
+    "rows": 360,
+    "rows_by_label": {
+      "0": 180,
+      "1": 180
+    }
+  },
+  "seed": 20261101
+}

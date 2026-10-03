@@ -1,0 +1,8 @@
+.git
+.venv
+**/node_modules
+**/.next
+ml/data
+ml/results/*.pkl
+ml/results/*.ubj
+core/secretsense/model/artifacts

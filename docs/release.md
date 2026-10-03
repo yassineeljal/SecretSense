@@ -80,7 +80,9 @@ until verified by their owner.
 - [Build-only release rehearsal](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726):
   passed at `5a9024d`, with wheel/sdist artifacts retained for seven days and the
   publication job skipped. See [progress](progress.md) for full validation.
-- Host account/project, URL, privacy contact/logging review: not supplied.
+- Portfolio site: deployed on the owner's VPS at `https://secretsense.apps.auditflow.ca`
+  (Docker Compose behind Coolify's Traefik; see `deploy/`). Automatic redeploy on push,
+  privacy contact, and host logging review: not done.
 - PyPI/TestPyPI ownership, trusted publishers, protected release environments,
   version tags, and publication: not established.
 - Author biography and LinkedIn: not supplied; the about page uses only the Git

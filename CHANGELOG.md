@@ -15,4 +15,6 @@
 - Optional advisory Ollama review of generic candidates (`--llm`), loopback-only, redacted
   prompts, JSON schema 1.3; no measured benefit is claimed.
 
-No hosted service, version tag, or PyPI publication is claimed.
+Docker Compose deployment files for the portfolio-mode site (`deploy/`).
+
+No version tag or PyPI publication is claimed.

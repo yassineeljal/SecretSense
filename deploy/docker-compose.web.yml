@@ -1,0 +1,26 @@
+# Portfolio website behind Coolify's Traefik proxy (HTTPS via Let's Encrypt).
+# DNS: an A record for the hostname below pointing at the VPS. Usage, from the repository root:
+#   docker compose -f deploy/docker-compose.web.yml up -d --build
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/web.Dockerfile
+    restart: unless-stopped
+    networks:
+      - coolify
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=coolify
+      - traefik.http.routers.secretsense.rule=Host(`secretsense.apps.auditflow.ca`)
+      - traefik.http.routers.secretsense.entrypoints=https
+      - traefik.http.routers.secretsense.tls=true
+      - traefik.http.routers.secretsense.tls.certresolver=letsencrypt
+      - traefik.http.services.secretsense.loadbalancer.server.port=3000
+      - traefik.http.routers.secretsense-http.rule=Host(`secretsense.apps.auditflow.ca`)
+      - traefik.http.routers.secretsense-http.entrypoints=http
+      - traefik.http.routers.secretsense-http.middlewares=secretsense-https
+      - traefik.http.middlewares.secretsense-https.redirectscheme.scheme=https
+networks:
+  coolify:
+    external: true

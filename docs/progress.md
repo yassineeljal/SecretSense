@@ -4,6 +4,33 @@ Every functional change must update this log and the relevant usage or design
 documentation. Every meaningful change must also update the README session
 handoff. Record actual validation separately from planned checks.
 
+## 2026-10-03 — Portfolio site deployed on the owner's VPS
+
+### Delivered
+
+- Added `deploy/web.Dockerfile`, `deploy/docker-compose.web.yml`, and `.dockerignore`. The
+  image builds the site with `build:portfolio` and serves it on `0.0.0.0:3000` as a non-root
+  user; only `ml/results/baseline.json` and `xgboost.json` are copied for the benchmarks page.
+- The compose file joins Coolify's `coolify` network and routes
+  `secretsense.apps.auditflow.ca` through its Traefik proxy (Let's Encrypt, HTTP redirect).
+  No API is deployed and no scan input exists in this mode.
+- Added the previously untracked sprint 8 experiment protocol, script, and `llm.json`
+  (qwen2.5:3b, synthetic data). The results were committed as recorded and not analysed here.
+
+### Validation
+
+- `docker compose config` is valid; the image built and the container started.
+- `/`, `/scan`, `/benchmarks`, `/how-it-works`, and `/security` returned HTTP 200 over HTTPS;
+  `/scan` contains no form, textarea, or file input.
+- Playwright portfolio tests, visual inspection, and the robots/indexing setting were not
+  rechecked against the deployed site.
+
+### Handoff
+
+Redeploy manually with `sudo docker compose -f deploy/docker-compose.web.yml up -d --build`.
+Automatic redeploy on push (Coolify GitHub webhook) is not configured. The host privacy and
+logging review, privacy contact, and PyPI publication remain open.
+
 ## 2026-10-02 — Sprint 8: optional local LLM review (benefit unmeasured)
 
 ### Delivered

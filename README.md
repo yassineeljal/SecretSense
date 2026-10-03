@@ -12,7 +12,7 @@ and a Next.js demonstration site run locally.
 
 **Status:** sprints 0–6 are implemented and pushed; sprint 8 (optional local LLM review) is implemented locally without measured benefit. Sprint 7 adds six informational
 pages, interactive recorded benchmarks, privacy policy, portfolio hosting
-configuration, and release preparation. Public hosting and PyPI publication remain
+configuration, and release preparation. The portfolio site is deployed; PyPI publication remains
 pending. Rules plus entropy remain the default; optional ML retains every finding.
 The full intended product is described in [the roadmap](docs/roadmap.md).
 
@@ -53,6 +53,9 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   TestPyPI/PyPI projects following [the release guide](docs/release.md), review
   host privacy/logging, then verify deployment and publication. Public scanning
   first needs authentication, TLS/ingress/logging review, and shared limits.
+- **Deployment (2026-10-03):** the portfolio-mode site is served at
+  `https://secretsense.apps.auditflow.ca` from the owner's VPS (`deploy/`, Docker Compose
+  behind Coolify's Traefik). No API or scan input is exposed. Redeploys are manual.
 - **Local preview:** local mode is rebuilt and serving at `http://127.0.0.1:3000`,
   with the bounded single-worker API on port 8000. These are local review servers.
 - **Still planned:** public launch, package publication, supplied biography/profile
