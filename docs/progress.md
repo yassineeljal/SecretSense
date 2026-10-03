@@ -31,7 +31,7 @@ Redeploy manually with `sudo docker compose -f deploy/docker-compose.web.yml up 
 Automatic redeploy on push (Coolify GitHub webhook) is not configured. The host privacy and
 logging review, privacy contact, and PyPI publication remain open.
 
-## 2026-10-02 — Sprint 8: optional local LLM review (benefit unmeasured)
+## 2026-10-02 — Sprint 8: optional local LLM review (no measured benefit)
 
 ### Delivered
 
@@ -55,9 +55,14 @@ logging review, privacy contact, and PyPI publication remain open.
 
 ### Handoff
 
-**No real Ollama server was available**, so no model was queried and **no measured benefit
-is claimed**. The roadmap's measured-benefit deliverable remains open: it needs Ollama
-installed locally and a fresh reserved set, not the two observed holdouts. Prompt-injection
+**Measured result (2026-10-02, added 2026-10-03).** The fixed protocol in
+[sprint8-llm-experiment.md](sprint8-llm-experiment.md) ran once with `qwen2.5:3b` on 360
+synthetic rows (842 s, 0 errors). 311 rows produced a candidate and every one was judged
+`likely-secret`, including cue-name and placeholder-value negatives. Precision after
+deprioritizing `likely-placeholder` or `unsure` is 0.5145 with recall 1.0, identical to
+keeping everything: **no measurable benefit** for this model and prompt. One small model, one
+prompt, synthetic data; it does not rule out other models. The set is now observed and cannot
+be a fresh holdout. Prompt-injection
 resistance is untested against real models. Public launch still needs owner-selected hosting.
 
 ## 2026-10-01 — Sprint 7: informational site and release preparation

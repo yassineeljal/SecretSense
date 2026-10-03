@@ -25,9 +25,11 @@ home, pipeline, and recorded benchmarks; no scan input or real credentials.
 
 Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before work.
 
-- **Sprint 8 (local, uncommitted):** `--llm` adds advisory Ollama verdicts for generic
-  candidates; loopback-only, redacted prompts, JSON 1.3. 157 tests pass (93.07%); tested
-  only with a fake server. No real model was run, so no benefit is claimed. See
+- **Sprint 8:** `--llm` adds advisory Ollama verdicts for generic candidates; loopback-only,
+  redacted prompts, JSON 1.3. 157 tests pass (93.07%). One recorded run (`qwen2.5:3b`,
+  360 synthetic rows, [protocol](docs/sprint8-llm-experiment.md)) showed **no benefit**:
+  all 311 reviewed candidates were judged `likely-secret`, so precision stayed at 0.5145,
+  identical to keeping everything. One small model and one prompt only. See
   [CLI guide](docs/cli.md#optional-local-llm-review-sprint-8).
 - **Current milestone:** sprints 0–6 delivered; sprint 7 site/policy/release
   preparation implemented. The public deployment/publication milestone is pending.
@@ -48,8 +50,8 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   The [build-only release rehearsal passed](https://github.com/yassineeljal/SecretSense/actions/runs/36950893726),
   producing wheel/sdist artifacts; publication was skipped. The runner setuptools
   audit failure from checkpoint `9e78ab0` is fixed. No deployment/publication occurred.
-- **Next concrete step:** install Ollama locally and measure the LLM benefit on a fresh
-  reserved set; separately, configure an owner-selected portfolio host and
+- **Next concrete step:** decide whether to try another model or prompt for the LLM review
+  (the protocol is spent on this set); separately, configure automatic redeploys and
   TestPyPI/PyPI projects following [the release guide](docs/release.md), review
   host privacy/logging, then verify deployment and publication. Public scanning
   first needs authentication, TLS/ingress/logging review, and shared limits.
@@ -60,7 +62,7 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   with the bounded single-worker API on port 8000. These are local review servers.
 - **Still planned:** public launch, package publication, supplied biography/profile
   links, independent review, unseen-repository evaluation, calibration, repository
-  URL input, and a measured Ollama benefit. Host/project ownership and privacy contact are
+  URL input, and any measured Ollama benefit. Host/project ownership and privacy contact are
   not supplied; do not infer them from the Git remote.
 - **Standing instructions:** English project content; keep this handoff and relevant
   guides current; keep scanning local; never commit real credentials or invent metrics.

@@ -171,7 +171,7 @@ adjudication and unseen-repository evaluation remain unverified.
 | 5: remediation | Service playbooks, Git-history scan, error analysis, XGBoost evaluation, SARIF, reusable Action | CI-ready scanner with remediation |
 | 6: API and site | Bounded FastAPI service, home/scan/results pages, masking, API and browser tests | Working local demonstration |
 | 7: polish and release | Benchmark/how-it-works/model/security pages, hosting, PyPI release, final README/GIF/badges, policy docs | Public, deployed, installable product |
-| 8: optional LLM | Redacted Ollama requests for uncertain cases, --llm option, measured benefit | Documented advanced mode (implemented; measured benefit pending) |
+| 8: optional LLM | Redacted Ollama requests for uncertain cases, --llm option, measured benefit | Documented advanced mode (implemented; first measured run showed no benefit) |
 
 Console and JSON reporting were brought forward to sprint 1 so the first scanner
 is usable and its masking contract can be tested. Early security, contribution,
