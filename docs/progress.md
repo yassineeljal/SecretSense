@@ -4,6 +4,17 @@ Every functional change must update this log and the relevant usage or design
 documentation. Every meaningful change must also update the README session
 handoff. Record actual validation separately from planned checks.
 
+## 2026-10-03 — Deployed site checked
+
+### Validation
+
+- Over HTTPS, `/`, `/scan`, `/benchmarks`, `/how-it-works`, and `/security` returned 200.
+- Responses carry a strict CSP, `X-Frame-Options: DENY`, `nosniff`, and `Referrer-Policy: no-referrer`.
+- Pages include `<meta name="robots" content="noindex, nofollow">`; `/robots.txt` and
+  `/sitemap.xml` return 404 (indexing is blocked by the meta tag only).
+- Not rechecked: Playwright portfolio tests against the live URL, visual inspection,
+  automatic redeploy on a real push, Coolify two-factor authentication.
+
 ## 2026-10-03 — Portfolio site deployed on the owner's VPS
 
 ### Delivered
