@@ -57,7 +57,7 @@ Read this README, `AGENTS.md`, and [the progress log](docs/progress.md) before w
   first needs authentication, TLS/ingress/logging review, and shared limits.
 - **Deployment (2026-10-03):** the portfolio-mode site is served at
   `https://secretsense.apps.auditflow.ca` from the owner's VPS (`deploy/`, Docker Compose
-  behind Coolify's Traefik). No API or scan input is exposed. Redeploys are manual.
+  behind Coolify's Traefik). No API or scan input is exposed. Coolify redeploys it on push to `main` via a GitHub webhook (test delivery OK).
 - **Local preview:** local mode is rebuilt and serving at `http://127.0.0.1:3000`,
   with the bounded single-worker API on port 8000. These are local review servers.
 - **Still planned:** public launch, package publication, supplied biography/profile

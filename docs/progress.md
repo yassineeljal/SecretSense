@@ -27,9 +27,13 @@ handoff. Record actual validation separately from planned checks.
 
 ### Handoff
 
-Redeploy manually with `sudo docker compose -f deploy/docker-compose.web.yml up -d --build`.
-Automatic redeploy on push (Coolify GitHub webhook) is not configured. The host privacy and
-logging review, privacy contact, and PyPI publication remain open.
+The site now runs as the Coolify application `secretsense-web` (Dockerfile build pack,
+`deploy/web.Dockerfile`, domain `secretsense.apps.auditflow.ca`); the standalone compose file
+is kept as a manual alternative. A GitHub `push` webhook points to Coolify
+(`https://coolify.auditflow.ca/webhooks/source/github/events/manual`) and the GitHub test
+delivery returned 200. Automatic redeploy on a real push is verified only by the next push.
+The Coolify dashboard is public over HTTPS: enable two-factor authentication. The host
+privacy and logging review, privacy contact, and PyPI publication remain open.
 
 ## 2026-10-02 — Sprint 8: optional local LLM review (no measured benefit)
 
