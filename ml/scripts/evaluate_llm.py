@@ -95,8 +95,11 @@ def rate(numerator: int, denominator: int):
 
 
 def summarize(rows: list[dict], outcomes: list[str]) -> dict:
-    reviewed = [(r, o) for r, o in zip(rows, outcomes, strict=True) if o in (
-        "likely-secret", "likely-placeholder", "unsure")]
+    reviewed = [
+        (r, o)
+        for r, o in zip(rows, outcomes, strict=True)
+        if o in ("likely-secret", "likely-placeholder", "unsure")
+    ]
     candidates = [(r, o) for r, o in zip(rows, outcomes, strict=True) if o != "no-candidate"]
 
     def kept(pairs, drop):
