@@ -83,7 +83,7 @@ jobs:
         working-directory: web
       - run: npm run lint && npm run format:check && npm run build && npm run typecheck
         working-directory: web
-      - run: npm audit
+      - run: npm audit --omit=dev
         working-directory: web
       - run: npx playwright install --with-deps chromium
         working-directory: web

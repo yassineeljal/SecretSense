@@ -4,6 +4,23 @@ Every functional change must update this log and the relevant usage or design
 documentation. Every meaningful change must also update the README session
 handoff. Record actual validation separately from planned checks.
 
+## 2026-10-03 — CI repair
+
+### Delivered
+
+- Formatted `ml/scripts/evaluate_llm.py` with `ruff format`; the sprint 8 push had left it
+  unformatted, which failed the Python and hooks jobs.
+- The web job now runs `npm audit --omit=dev`. A new high-severity advisory on `braces`
+  (GHSA-vfj7-8cjw-p6xm, no patched release) reaches the project only through
+  `eslint-config-next`, a lint-time dev dependency that is not shipped. The suggested
+  `npm audit fix --force` downgrades `eslint-config-next` to 14.2.35 and was not applied.
+  Production dependencies are still audited; revisit when upstream publishes a fix.
+
+### Validation
+
+- `ruff check` and `ruff format --check` pass locally. `npm` is not installed on this host,
+  so the audit change and the web job were not run locally; CI is the check.
+
 ## 2026-10-03 — Deployed site checked
 
 ### Validation
